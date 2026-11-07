@@ -6,9 +6,17 @@ const base = localeBase(Astro.locals.starlightRoute);
 ---
 <Default />
 <nav class="wiki-footer" aria-label={tr('Site information')}>
-  <span>© {new Date().getFullYear()} ArtCraft</span>
-  <a href={`${base}/about/`}>{tr('About')}</a>
-  <a href={`${base}/contact/`}>{tr('Contact')}</a>
-  <a href={`${base}/terms/`}>{tr('Terms')}</a>
-  <a href={`${base}/privacy/`}>{tr('Privacy')}</a>
+  <div class="wiki-footer-main">
+    <div class="wiki-footer-brand">
+      <img src="/assets/apps/artcraft-studio.svg" alt="ArtCraft" />
+      <p>{tr('Guides for ArtCraft Studio and every Craft App.')}</p>
+    </div>
+    <div class="wiki-footer-links">
+      <a href={`${base}/about/`}>{tr('About')}</a>
+      <a href={`${base}/contact/`}>{tr('Contact')}</a>
+      <a href={`${base}/terms/`}>{tr('Terms')}</a>
+      <a href={`${base}/privacy/`}>{tr('Privacy')}</a>
+    </div>
+  </div>
+  <div class="wiki-footer-bottom"><span>© {new Date().getFullYear()} ARTCRAFT</span><span>{tr('FREE AND OPEN SOURCE')}</span></div>
 </nav>

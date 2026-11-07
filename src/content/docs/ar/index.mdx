@@ -4,249 +4,64 @@ description: أدلة ArtCraft وتطبيقات Craft.
 tableOfContents: false
 ---
 
+import WikiAppCard from '../../../components/WikiAppCard.astro';
+import WikiAppShowcase from '../../../components/WikiAppShowcase.astro';
+
 <div className="wiki-home">
-  <p className="wiki-eyebrow">ARTCRAFT / قاعدة المعرفة</p>
-  <h1 id="_top">اصنع شيئاً<br /><em>يستحق المشاركة.</em></h1>
-  <p className="wiki-intro">دليلك إلى ArtCraft وتطبيقات Craft. اختر تطبيقاً لتتصفح أدلته وسير العمل فيه وموارد الدعم.</p>
+  <section className="wiki-hero" aria-labelledby="_top">
+    <div className="wiki-hero-body">
+      <div className="wiki-hero-copy">
+        <h1 id="_top">اصنع شيئاً<br /><em>يستحق المشاركة.</em></h1>
+        <p className="wiki-intro">دليلك إلى ArtCraft وتطبيقات Craft. اختر تطبيقاً لتتصفح أدلته وسير العمل فيه وموارد الدعم.</p>
+      </div>
+      <WikiAppShowcase />
+    </div>
+  </section>
   <div className="wiki-section-heading" id="apps"><div><p className="wiki-eyebrow">تطبيقات Craft</p><h2>اعثر على تطبيقك</h2></div><span>17 تطبيقاً</span></div>
 
   <div className="app-categories">
     <section className="app-category">
-      <div className="app-category-heading">
-        <h3>الذكاء الاصطناعي والوسائط التوليدية</h3>
-        <span className="app-category-count">تطبيق واحد</span>
-      </div>
+      <div className="app-category-heading"><h3>الذكاء الاصطناعي والوسائط التوليدية</h3><span className="app-category-count">تطبيق واحد</span></div>
+      <div className="app-grid"><WikiAppCard slug="artcraft-studio" /></div>
+    </section>
+    <section className="app-category">
+      <div className="app-category-heading"><h3>الرسومات والتصميم</h3><span className="app-category-count">7 تطبيقات</span></div>
       <div className="app-grid">
-        <a className="app-tile" href="/ar/apps/artcraft-studio/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/artcraft-studio.svg" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>ArtCraft Studio <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">صور وفيديو توليدية</span>
-          </div>
-        </a>
+        <WikiAppCard slug="photocraft" />
+        <WikiAppCard slug="vectorcraft" />
+        <WikiAppCard slug="lightcraft" />
+        <WikiAppCard slug="designcraft" />
+        <WikiAppCard slug="figcraft" />
+        <WikiAppCard slug="texturecraft" />
+        <WikiAppCard slug="materialcraft" />
       </div>
     </section>
-
     <section className="app-category">
-      <div className="app-category-heading">
-        <h3>الرسومات والتصميم</h3>
-        <span className="app-category-count">7 تطبيقات</span>
-      </div>
-      <div className="app-grid">
-        <a className="app-tile" href="/ar/apps/photocraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/photocraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>PhotoCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">محرر صور</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/vectorcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/vectorcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>VectorCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">رسم متجهي</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/lightcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/lightcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>LightCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">مكتبة صور ومعالج RAW</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/designcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/designcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>DesignCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">تخطيط الصفحات والنشر</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/figcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/figcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>FigCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">تصميم الواجهات</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/texturecraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/texturecraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>TextureCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">طلاء الخامات ثلاثية الأبعاد</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/materialcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/materialcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>MaterialCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">مواد إجرائية</span>
-          </div>
-        </a>
-      </div>
+      <div className="app-category-heading"><h3>الفيديو والمؤثرات</h3><span className="app-category-count">تطبيقان</span></div>
+      <div className="app-grid"><WikiAppCard slug="filmcraft" /><WikiAppCard slug="effectcraft" /></div>
     </section>
-
     <section className="app-category">
-      <div className="app-category-heading">
-        <h3>الفيديو والمؤثرات</h3>
-        <span className="app-category-count">تطبيقان</span>
-      </div>
-      <div className="app-grid">
-        <a className="app-tile" href="/ar/apps/filmcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/filmcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>FilmCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">محرر فيديو</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/effectcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/effectcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>EffectCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">رسوم متحركة ومؤثرات بصرية</span>
-          </div>
-        </a>
-      </div>
+      <div className="app-category-heading"><h3>الصوت</h3><span className="app-category-count">تطبيق واحد</span></div>
+      <div className="app-grid"><WikiAppCard slug="soundcraft" /></div>
     </section>
-
     <section className="app-category">
-      <div className="app-category-heading">
-        <h3>الصوت</h3>
-        <span className="app-category-count">تطبيق واحد</span>
-      </div>
-      <div className="app-grid">
-        <a className="app-tile" href="/ar/apps/soundcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/soundcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>SoundCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">محطة عمل صوتية رقمية</span>
-          </div>
-        </a>
-      </div>
+      <div className="app-category-heading"><h3>CAD والصياغة</h3><span className="app-category-count">تطبيق واحد</span></div>
+      <div className="app-grid"><WikiAppCard slug="cadcraft" /></div>
     </section>
-
     <section className="app-category">
-      <div className="app-category-heading">
-        <h3>CAD والصياغة</h3>
-        <span className="app-category-count">تطبيق واحد</span>
-      </div>
-      <div className="app-grid">
-        <a className="app-tile" href="/ar/apps/cadcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/cadcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>CADCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">تصميم وصياغة بمساعدة الحاسوب</span>
-          </div>
-        </a>
-      </div>
+      <div className="app-category-heading"><h3>التطبيقات المكتبية</h3><span className="app-category-count">4 تطبيقات</span></div>
+      <div className="app-grid"><WikiAppCard slug="wordcraft" /><WikiAppCard slug="gridcraft" /><WikiAppCard slug="deckcraft" /><WikiAppCard slug="pdfcraft" /></div>
     </section>
-
     <section className="app-category">
-      <div className="app-category-heading">
-        <h3>التطبيقات المكتبية</h3>
-        <span className="app-category-count">4 تطبيقات</span>
-      </div>
-      <div className="app-grid">
-        <a className="app-tile" href="/ar/apps/wordcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/wordcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>WordCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">معالجة النصوص</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/gridcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/gridcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>GridCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">جداول البيانات وتحليلها</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/deckcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/deckcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>DeckCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">العروض التقديمية وعروض الشرائح</span>
-          </div>
-        </a>
-        <a className="app-tile" href="/ar/apps/pdfcraft/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/pdfcraft.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>PdfCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">منصة عمل لملفات PDF</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section className="app-category">
-      <div className="app-category-heading">
-        <h3>أدوات المطورين</h3>
-        <span className="app-category-count">تطبيق واحد</span>
-      </div>
-      <div className="app-grid">
-        <a className="app-tile" href="/ar/apps/craft-anything/overview/">
-          <div className="app-tile-header">
-            <img src="/assets/apps/craft-anything.webp" alt="" />
-          </div>
-          <div className="app-tile-body">
-            <strong>Craft Anything <span className="app-arrow" aria-hidden="true">↗</span></strong>
-            <span className="app-caption">استكشاف البرمجيات وصنعها</span>
-          </div>
-        </a>
-      </div>
+      <div className="app-category-heading"><h3>أدوات المطورين</h3><span className="app-category-count">تطبيق واحد</span></div>
+      <div className="app-grid"><WikiAppCard slug="craft-anything" /></div>
     </section>
   </div>
 
   <div className="wiki-section-heading" id="third-party-apps">
-    <div>
-      <p className="wiki-eyebrow">المجتمع والمنظومة</p>
-      <h2>تطبيقات الجهات الخارجية</h2>
-    </div>
+    <div><p className="wiki-eyebrow">المجتمع والمنظومة</p><h2>تطبيقات الجهات الخارجية</h2></div>
     <span>تطبيق واحد</span>
   </div>
   <p className="wiki-thirdparty-intro">تطبيقات من جهات خارجية ومن المجتمع صُنعت لمنظومة Craft، ويتولى صانعوها صيانتها بشكل مستقل.</p>
-
-  <div className="app-grid">
-    <a className="app-tile" href="/ar/apps/solidcraft/overview/">
-      <div className="app-tile-header">
-        <img src="/assets/apps/solidcraft.png" alt="" />
-        <span className="app-badge-thirdparty">جهة خارجية</span>
-      </div>
-      <div className="app-tile-body">
-        <strong>SolidCraft <span className="app-arrow" aria-hidden="true">↗</span></strong>
-        <span className="app-caption">CAD بارامتري ثلاثي الأبعاد مستقل</span>
-      </div>
-    </a>
-  </div>
+  <div className="app-grid"><WikiAppCard slug="solidcraft" /></div>
 </div>
