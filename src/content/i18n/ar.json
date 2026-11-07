@@ -100,5 +100,11 @@
   "wiki.Computer-aided design & drafting": "تصميم وصياغة بمساعدة الحاسوب",
   "wiki.Spreadsheets & data analysis": "جداول البيانات وتحليلها",
   "wiki.Software exploration & creation": "استكشاف البرمجيات وصنعها",
-  "wiki.Independent parametric 3D CAD": "CAD بارامتري ثلاثي الأبعاد مستقل"
+  "wiki.Independent parametric 3D CAD": "CAD بارامتري ثلاثي الأبعاد مستقل",
+
+  "wiki.Reshape with the warp tools": "إعادة التشكيل بأدوات الالتواء",
+  "wiki.Cut, join and refine paths": "قص المسارات ووصلها وتحسينها",
+  "wiki.Make patterns, blends and repeats": "إنشاء الأنماط والمزج والتكرارات",
+  "wiki.Draw in perspective": "الرسم بالمنظور",
+  "wiki.Slice artwork for the web": "تقطيع العمل الفني للويب"
 }
