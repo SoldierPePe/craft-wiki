@@ -15,10 +15,13 @@ The [Cloudflare hook workflow](.github/workflows/deploy.yml) succeeding means Cl
 
 ```text
 astro.config.mjs              Starlight configuration and app sidebar groups
-src/content.config.ts         Starlight content collection and schema
+src/content.config.ts         Starlight content collections: pages and interface text
 src/content/docs/index.mdx    Home page, hero copy, and app cards
 src/content/docs/apps/        Markdown pages, one folder per app
+src/content/docs/ar/          Arabic pages, at the same paths as the English ones
+src/content/i18n/ar.json      Arabic text for the custom header, sidebar and footer
 src/data/apps.mjs             App names, slugs, icon extensions, and guide links
+src/data/i18n.mjs             Looks up that text and the page's language path
 src/components/               Custom header, sidebar, page title, and theme
 src/styles/custom.css         Wiki theme and layout
 public/assets/apps/           App icons used by the site
@@ -157,12 +160,12 @@ The app guide collections under `src/content/docs/apps/` are available in Svelti
 
 The site uses Astro Starlight with custom components configured in `astro.config.mjs`:
 
-- `WikiHeader.astro` renders the Craft Wiki brand and navigation, including the edit link.
-- `WikiSidebar.astro` renders the searchable app list, each app's icon, and expandable guide links. The current app is expanded on its pages.
-- `WikiPageTitle.astro` hides the default Starlight page title on the custom home page and retains it on guide pages.
+- `WikiHeader.astro` renders the Craft Wiki brand and navigation, including the edit link and the language menu.
+- `WikiSidebar.astro` renders the searchable app list, each app's icon, and expandable guide links. The current app is expanded on its pages. On phones it also holds the language menu.
+- `WikiPageTitle.astro` hides the default Starlight page title on the custom home pages, English and Arabic, and retains it on guide pages.
 - `WikiThemeProvider.astro` selects the dark theme.
 
-`src/styles/custom.css` styles the layout and uses the Archivo, Instrument Serif, Inter, and Geist Mono font families to match the main ArtCraft site. Font files are npm dependencies and are bundled during the build. The homepage markup and its hero copy live in `src/content/docs/index.mdx`.
+`src/styles/custom.css` styles the layout and uses the Archivo, Instrument Serif, Inter, and Geist Mono font families to match the main ArtCraft site. Arabic letters use Readex Pro, and the Arabic home heading's second line uses Aref Ruqaa. Font files are npm dependencies and are bundled during the build. The homepage markup and its hero copy live in `src/content/docs/index.mdx`, and the Arabic one's in `src/content/docs/ar/index.mdx`.
 
 ## Cloudflare deployment
 
