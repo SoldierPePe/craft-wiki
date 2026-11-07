@@ -42,5 +42,20 @@
   "wiki.Organise pages": "تنظيم الصفحات",
   "wiki.Forms and signing": "النماذج والتوقيع",
   "wiki.After Effects projects": "مشاريع After Effects",
-  "wiki.Move over from Lightroom": "الانتقال من Lightroom"
+  "wiki.Move over from Lightroom": "الانتقال من Lightroom",
+
+  "wiki.Set up a document and artboards": "إعداد المستند وألواح الرسم",
+  "wiki.Draw and transform shapes": "رسم الأشكال وتحويلها",
+  "wiki.Draw and edit paths": "رسم المسارات وتحريرها",
+  "wiki.Fill, stroke and color": "التعبئة والحد واللون",
+  "wiki.Add and style type": "إضافة النص وتنسيقه",
+  "wiki.Arrange, group and align": "الترتيب والتجميع والمحاذاة",
+  "wiki.Combine and cut shapes": "دمج الأشكال وقصها",
+  "wiki.Apply effects and appearance": "تطبيق التأثيرات والمظهر",
+  "wiki.Organize with layers and symbols": "التنظيم بالطبقات والرموز",
+  "wiki.Trace an image": "تتبع صورة",
+  "wiki.Export for screens and the web": "التصدير للشاشات والويب",
+  "wiki.Open and save files": "فتح الملفات وحفظها",
+  "wiki.Print your artwork": "طباعة عملك الفني",
+  "wiki.Automate VectorCraft": "أتمتة VectorCraft"
 }
