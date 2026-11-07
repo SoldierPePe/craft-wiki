@@ -1,4 +1,13 @@
 ---
 import Default from '@astrojs/starlight/components/PageTitle.astro';
+import { allApps } from '../data/apps.mjs';
+const { pathname } = Astro.url;
+// Search results show only a page's title, and every app has a "Troubleshooting" page, so the
+// result title names the app too: "CADCraft › Troubleshooting".
+const slug = pathname.match(/\/apps\/([^/]+)\//)?.[1];
+const appName = allApps.find(([s]) => s === slug)?.[1];
+const { title } = Astro.locals.starlightRoute.entry.data;
+const searchTitle = appName && appName !== title ? `${appName} › ${title}` : undefined;
 ---
-{Astro.url.pathname !== '/' && <Default />}
+{pathname !== '/' && <Default />}
+{searchTitle && <span hidden data-pagefind-meta={`title:${searchTitle}`}></span>}

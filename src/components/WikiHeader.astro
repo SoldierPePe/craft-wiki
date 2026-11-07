@@ -1,8 +1,31 @@
+---
+import config from 'virtual:starlight/user-config';
+import Search from 'virtual:starlight/components/Search';
+---
 <header class="wiki-header">
   <a class="wiki-brand" href="/">Craft <span>Wiki</span></a>
+  {/* Replacing Starlight's header dropped its search of the Pagefind index the build makes; keep it. */}
+  {config.pagefind && <div class="wiki-header-search"><Search /></div>}
   <nav aria-label="Main navigation" class="wiki-header-links">
     <a href="/#apps">Browse apps</a>
     <a href="https://getartcraft.com">ArtCraft ↗</a>
     <a href="/edit/">Edit wiki ↗</a>
   </nav>
 </header>
+<script>
+  // A search result's link carries the searched words, and the page it opens marks them with
+  // Pagefind's own highlighter, which the build puts next to the index.
+  const param = 'pagefind-highlight';
+  document.addEventListener('click', (event) => {
+    const link = (event.target as Element).closest?.<HTMLAnchorElement>('#starlight__search a');
+    const words = document.querySelector<HTMLInputElement>('#starlight__search input')?.value.trim().split(/\s+/);
+    if (!link || !words?.[0]) return;
+    const url = new URL(link.href);
+    for (const word of words) url.searchParams.append(param, word);
+    link.href = url.href;
+  }, true);
+  if (new URLSearchParams(location.search).has(param)) {
+    const highlighter = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/pagefind/pagefind-highlight.js`;
+    import(/* @vite-ignore */ highlighter).then(({ default: PagefindHighlight }) => new PagefindHighlight({ highlightParam: param, addStyles: false }));
+  }
+</script>
