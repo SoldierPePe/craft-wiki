@@ -149,7 +149,7 @@ The app guide collections under `src/content/docs/apps/` are available in Svelti
 The site uses Astro Starlight with custom components configured in `astro.config.mjs`:
 
 - `WikiHeader.astro` renders the Craft Wiki brand, the search box and the navigation, including the edit link. Search covers every page's text, through the Pagefind index Starlight builds, and the page a result opens highlights the searched words.
-- `WikiSidebar.astro` renders the searchable app list, each app's icon, and expandable guide links. The current app is expanded on its pages.
+- `WikiSidebar.astro` renders the app list with its filter box (the header has the search), each app's icon, and expandable guide links. The current app is expanded on its pages.
 - `WikiPageTitle.astro` hides the default Starlight page title on the custom home page and retains it on guide pages. It also gives each app page a search-result title with the app's name, such as "CADCraft › Troubleshooting".
 - `WikiThemeProvider.astro` starts in dark mode and restores the visitor's saved light or dark choice.
 

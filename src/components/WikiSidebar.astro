@@ -5,8 +5,8 @@ const pathname = Astro.url.pathname;
 const appBySlug = Object.fromEntries(apps.map((app) => [app[0], app]));
 ---
 <div class="wiki-sidebar-inner">
-  <label class="wiki-search-label" for="wiki-app-search">Find an app</label>
-  <input id="wiki-app-search" type="search" placeholder="Search apps..." autocomplete="off" />
+  <label class="wiki-search-label" for="wiki-app-search">Filter apps</label>
+  <input id="wiki-app-search" type="search" placeholder="Filter apps..." autocomplete="off" />
   <a href="/" class:list={['wiki-home-link', { active: pathname === '/' }]}>All documentation</a>
   <p class="wiki-sidebar-label">OFFICIAL APPS</p>
   <div class="wiki-official-apps">
