@@ -1,21 +1,26 @@
 ---
-import { apps, thirdPartyApps } from '../data/apps.mjs';
+import { apps, appCategories, thirdPartyApps } from '../data/apps.mjs';
 import WikiGuideLinks from './WikiGuideLinks.astro';
 const pathname = Astro.url.pathname;
+const appBySlug = Object.fromEntries(apps.map((app) => [app[0], app]));
 ---
 <div class="wiki-sidebar-inner">
   <label class="wiki-search-label" for="wiki-app-search">Find an app</label>
   <input id="wiki-app-search" type="search" placeholder="Search apps..." autocomplete="off" />
   <a href="/" class:list={['wiki-home-link', { active: pathname === '/' }]}>All documentation</a>
-  <p class="wiki-sidebar-label">OFFICIAL APPS</p>
-  <div id="wiki-app-list">
-    {apps.map(([slug, name, ext = 'webp']) => (
-      <details class="wiki-app-group" data-name={name.toLowerCase()} open={pathname.startsWith(`/apps/${slug}/`)}>
-        <summary><img src={`/assets/apps/${slug}.${ext}`} alt="" /><span>{name}</span><span class="wiki-chevron" aria-hidden="true">⌄</span></summary>
-        <WikiGuideLinks slug={slug} />
-      </details>
-    ))}
-  </div>
+  {appCategories.map(([category, slugs]) => (
+    <>
+      <p class="wiki-sidebar-label">{category}</p>
+      <div class="wiki-app-list">
+        {slugs.map((slug) => appBySlug[slug]).map(([slug, name, ext = 'webp']) => (
+          <details class="wiki-app-group" data-name={name.toLowerCase()} open={pathname.startsWith(`/apps/${slug}/`)}>
+            <summary><img src={`/assets/apps/${slug}.${ext}`} alt="" /><span>{name}</span><span class="wiki-chevron" aria-hidden="true">⌄</span></summary>
+            <WikiGuideLinks slug={slug} />
+          </details>
+        ))}
+      </div>
+    </>
+  ))}
   <p class="wiki-sidebar-label">THIRD-PARTY APPS</p>
   <div id="wiki-thirdparty-app-list">
     {thirdPartyApps.map(([slug, name, ext = 'webp']) => (
