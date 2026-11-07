@@ -151,7 +151,7 @@ The site uses Astro Starlight with custom components configured in `astro.config
 - `WikiHeader.astro` renders the Craft Wiki brand, the search box and the navigation, including the edit link. Search covers every page's text, through the Pagefind index Starlight builds, and the page a result opens highlights the searched words.
 - `WikiSidebar.astro` renders the searchable app list, each app's icon, and expandable guide links. The current app is expanded on its pages.
 - `WikiPageTitle.astro` hides the default Starlight page title on the custom home page and retains it on guide pages. It also gives each app page a search-result title with the app's name, such as "CADCraft › Troubleshooting".
-- `WikiThemeProvider.astro` selects the dark theme.
+- `WikiThemeProvider.astro` starts in dark mode and restores the visitor's saved light or dark choice.
 
 `src/styles/custom.css` styles the layout and uses the Archivo, Instrument Serif, Inter, and Geist Mono font families to match the main ArtCraft site. Font files are npm dependencies and are bundled during the build. The homepage markup and its hero copy live in `src/content/docs/index.mdx`.
 
