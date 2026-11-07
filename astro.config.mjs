@@ -25,7 +25,7 @@ export default defineConfig({
       ar: { label: 'العربية', lang: 'ar', dir: 'rtl' },
     },
     customCss: ['./src/styles/custom.css'],
-    components: { Header: './src/components/WikiHeader.astro', Sidebar: './src/components/WikiSidebar.astro', PageTitle: './src/components/WikiPageTitle.astro', ThemeProvider: './src/components/WikiThemeProvider.astro', Footer: './src/components/WikiFooter.astro' },
+    components: { Head: './src/components/WikiHead.astro', Header: './src/components/WikiHeader.astro', Sidebar: './src/components/WikiSidebar.astro', PageTitle: './src/components/WikiPageTitle.astro', ThemeProvider: './src/components/WikiThemeProvider.astro', Footer: './src/components/WikiFooter.astro' },
     sidebar: [
       { label: 'Home', translations: { ar: 'الرئيسية' }, link: '/' },
       // A full URL: Starlight prefixes other links with the page's locale, and the editor has no /ar/admin/.

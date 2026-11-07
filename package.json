@@ -15,7 +15,9 @@
     "@fontsource-variable/readex-pro": "^5.3.0",
     "@fontsource/aref-ruqaa": "^5.3.0",
     "@fontsource/instrument-serif": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@sveltia/cms": "^0.261.0",
-    "astro": "^7.4.7"
+    "astro": "^7.4.7",
+    "sharp": "^0.35.5"
   }
 }
