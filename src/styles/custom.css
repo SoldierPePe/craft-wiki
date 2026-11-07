@@ -22,6 +22,7 @@
 .wiki-header { display:flex; align-items:center; justify-content:space-between; height:100%; width:100%; padding:0 16px; }
 .wiki-brand { color:#f4f3f0; font:800 20px 'Archivo Variable', sans-serif; letter-spacing:-.045em; text-decoration:none; }
 .wiki-brand span { color:#b9cbff; font-weight:400; }
+.wiki-header-end { display:flex; align-items:center; gap:24px; }
 .wiki-header-links { display:flex; gap:24px; font-size:13px; color:#a4a6b2; }
 .wiki-header-links a { color:inherit; text-decoration:none; }
 .wiki-header-links a:hover { color:#f4f3f0; }
@@ -42,15 +43,15 @@
 .wiki-app-group summary span:nth-child(2) { flex:1; }
 .wiki-chevron { color:#a4a6b2; transition:transform .15s; }
 .wiki-app-group[open] .wiki-chevron { transform:rotate(180deg); }
-.wiki-guide-links { padding:2px 0 8px 29px; }
-.wiki-guide-links a { display:block; padding:7px 12px; border-left:1px solid #30323b; font-size:13px; color:#a4a6b2; text-decoration:none; }
+.wiki-guide-links { padding-block:2px 8px; padding-inline:29px 0; }
+.wiki-guide-links a { display:block; padding:7px 12px; border-inline-start:1px solid #30323b; font-size:13px; color:#a4a6b2; text-decoration:none; }
 .wiki-guide-links a[aria-current='page'] { color:#b9cbff; background:#292e3d; }
 .wiki-guide-parent { position:relative; }
-.wiki-guide-parent > a { padding-right:40px; }
-.wiki-guide-group > summary { position:absolute; top:0; right:0; padding:7px 12px; font-size:13px; }
+.wiki-guide-parent > a { padding-inline-end:40px; }
+.wiki-guide-group > summary { position:absolute; top:0; inset-inline-end:0; padding:7px 12px; font-size:13px; }
 .wiki-guide-chevron { color:#a4a6b2; display:inline-block; transition:transform .15s; }
 .wiki-guide-group[open] .wiki-guide-chevron { transform:rotate(180deg); }
-.wiki-guide-children { padding:2px 0 4px 12px; }
+.wiki-guide-children { padding-block:2px 4px; padding-inline:12px 0; }
 .wiki-guide-children a { line-height:1.45; }
 #wiki-no-results { font-size:13px; color:#a4a6b2; padding:10px; }
 .wiki-home { padding:36px 0 70px; }
@@ -77,15 +78,24 @@
 .wiki-thirdparty-intro { max-width:670px; color:#a4a6b2; font-size:15px; line-height:1.6; margin:-8px 0 20px; }
 .app-tile-body { display:flex; flex-direction:column; gap:4px; }
 .app-tile strong { font:650 15px/1.25 'Archivo Variable', sans-serif; letter-spacing:-.025em; color:#f4f3f0; display:inline-flex; align-items:center; justify-content:space-between; }
-.app-tile .app-arrow { color:#858895; font-size:13px; line-height:1; transition:transform .18s ease,color .18s ease; margin-left:6px; }
+.app-tile .app-arrow { color:#858895; font-size:13px; line-height:1; transition:transform .18s ease,color .18s ease; margin-inline-start:6px; }
 .sl-markdown-content a.app-tile:hover strong { color:#fff; }
 .sl-markdown-content a.app-tile:hover .app-arrow { color:#b9cbff; transform:translate(2px,-2px); }
 .app-tile .app-caption { font-size:12.5px; line-height:1.45; color:#9ea1ae; margin:0; min-height:36px; }
 .sl-markdown-content img[src^='/assets/apps/'] { width:72px; height:72px; object-fit:contain; }
-@media (min-width:50rem) { .sidebar-pane { border-inline-end:1px solid #30323b; } .wiki-home { padding-top:52px; } }
+/* Letter-spacing, italics and the monospace label font break the joins between Arabic letters. */
+:lang(ar) :is(.wiki-sidebar-label, .wiki-eyebrow, .wiki-home h1, .wiki-section-heading h2, .app-category-heading h3, .app-category-count, .app-badge-thirdparty) { letter-spacing:0; }
+:lang(ar) :is(.wiki-sidebar-label, .wiki-eyebrow, .wiki-section-heading > span, .app-category-count, .app-badge-thirdparty) { font-family:var(--sl-font); }
+:lang(ar) .wiki-home h1 em { font-style:normal; }
+/* On right-to-left pages, code blocks stay left to right, and inline code and bold labels take the direction of their first letter, so @5<45, (load "name") and .dxf keep their order. */
+[dir='rtl'] .expressive-code pre { direction:ltr; }
+[dir='rtl'] .sl-markdown-content :is(:not(pre) > code, strong) { unicode-bidi:plaintext; }
+@media (min-width:50rem) { .sidebar-pane { border-inline-end:1px solid #30323b; } .wiki-home { padding-top:52px; } .wiki-sidebar-lang { display:none; } }
 @media (max-width:49.99rem) {
   .wiki-header { padding:0; }
-  .wiki-header-links { gap:12px; font-size:12px; }
+  .wiki-header-end, .wiki-header-links { gap:12px; font-size:12px; }
+  .wiki-header-end starlight-lang-select { display:none; }
+  .wiki-sidebar-lang { margin-top:24px; }
   .wiki-header-links a:nth-child(2) { display:none; }
   .wiki-home { padding-top:12px; }
   .wiki-section-heading { margin-top:65px; }

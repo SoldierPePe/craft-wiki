@@ -1,21 +1,25 @@
 ---
 import { apps, appCategories, thirdPartyApps } from '../data/apps.mjs';
+import LanguageSelect from '@astrojs/starlight/components/LanguageSelect.astro';
+import { translator, localeBase } from '../data/i18n.mjs';
 import WikiGuideLinks from './WikiGuideLinks.astro';
 const pathname = Astro.url.pathname;
+const tr = translator(Astro.locals.t);
+const base = localeBase(Astro.locals.starlightRoute);
 const appBySlug = Object.fromEntries(apps.map((app) => [app[0], app]));
 ---
 <div class="wiki-sidebar-inner">
-  <label class="wiki-search-label" for="wiki-app-search">Find an app</label>
-  <input id="wiki-app-search" type="search" placeholder="Search apps..." autocomplete="off" />
-  <a href="/" class:list={['wiki-home-link', { active: pathname === '/' }]}>All documentation</a>
-  <p class="wiki-sidebar-label">OFFICIAL APPS</p>
+  <label class="wiki-search-label" for="wiki-app-search">{tr('Find an app')}</label>
+  <input id="wiki-app-search" type="search" placeholder={tr('Search apps...')} autocomplete="off" />
+  <a href={`${base}/`} class:list={['wiki-home-link', { active: pathname === `${base}/` }]}>{tr('All documentation')}</a>
+  <p class="wiki-sidebar-label">{tr('OFFICIAL APPS')}</p>
   <div class="wiki-official-apps">
     {appCategories.map(([category, slugs]) => (
       <>
-        <p class="wiki-sidebar-category">{category}</p>
+        <p class="wiki-sidebar-category">{tr(category)}</p>
         <div class="wiki-app-list">
           {slugs.map((slug) => appBySlug[slug]).map(([slug, name, ext = 'webp']) => (
-            <details class="wiki-app-group" data-name={name.toLowerCase()} open={pathname.startsWith(`/apps/${slug}/`)}>
+            <details class="wiki-app-group" data-name={name.toLowerCase()} open={pathname.startsWith(`${base}/apps/${slug}/`)}>
               <summary><img src={`/assets/apps/${slug}.${ext}`} alt="" /><span>{name}</span><span class="wiki-chevron" aria-hidden="true">⌄</span></summary>
               <WikiGuideLinks slug={slug} />
             </details>
@@ -24,16 +28,18 @@ const appBySlug = Object.fromEntries(apps.map((app) => [app[0], app]));
       </>
     ))}
   </div>
-  <p class="wiki-sidebar-label">THIRD-PARTY APPS</p>
+  <p class="wiki-sidebar-label">{tr('THIRD-PARTY APPS')}</p>
   <div id="wiki-thirdparty-app-list">
     {thirdPartyApps.map(([slug, name, ext = 'webp']) => (
-      <details class="wiki-app-group" data-name={name.toLowerCase()} open={pathname.startsWith(`/apps/${slug}/`)}>
+      <details class="wiki-app-group" data-name={name.toLowerCase()} open={pathname.startsWith(`${base}/apps/${slug}/`)}>
         <summary><img src={`/assets/apps/${slug}.${ext}`} alt="" /><span>{name}</span><span class="wiki-chevron" aria-hidden="true">⌄</span></summary>
         <WikiGuideLinks slug={slug} />
       </details>
     ))}
   </div>
-  <p id="wiki-no-results" hidden>No apps found.</p>
+  <p id="wiki-no-results" hidden>{tr('No apps found.')}</p>
+  {/* On phones the header has no room for the language menu, so it moves here. */}
+  <div class="wiki-sidebar-lang"><LanguageSelect /></div>
 </div>
 <script>
   const search = document.querySelector<HTMLInputElement>('#wiki-app-search');

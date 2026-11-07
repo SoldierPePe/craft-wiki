@@ -1,4 +1,7 @@
 ---
 import Default from '@astrojs/starlight/components/PageTitle.astro';
+import { localeBase } from '../data/i18n.mjs';
+// Each home page (/, /ar/) has its own heading.
+const home = `${localeBase(Astro.locals.starlightRoute)}/`;
 ---
-{Astro.url.pathname !== '/' && <Default />}
+{Astro.url.pathname !== home && <Default />}

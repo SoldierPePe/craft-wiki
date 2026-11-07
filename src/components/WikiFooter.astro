@@ -1,11 +1,14 @@
 ---
 import Default from '@astrojs/starlight/components/Footer.astro';
+import { translator, localeBase } from '../data/i18n.mjs';
+const tr = translator(Astro.locals.t);
+const base = localeBase(Astro.locals.starlightRoute);
 ---
 <Default />
-<nav class="wiki-footer" aria-label="Site information">
+<nav class="wiki-footer" aria-label={tr('Site information')}>
   <span>© {new Date().getFullYear()} ArtCraft</span>
-  <a href="/about/">About</a>
-  <a href="/contact/">Contact</a>
-  <a href="/terms/">Terms</a>
-  <a href="/privacy/">Privacy</a>
+  <a href={`${base}/about/`}>{tr('About')}</a>
+  <a href={`${base}/contact/`}>{tr('Contact')}</a>
+  <a href={`${base}/terms/`}>{tr('Terms')}</a>
+  <a href={`${base}/privacy/`}>{tr('Privacy')}</a>
 </nav>

@@ -1,8 +1,17 @@
+---
+import LanguageSelect from '@astrojs/starlight/components/LanguageSelect.astro';
+import { translator, localeBase } from '../data/i18n.mjs';
+const tr = translator(Astro.locals.t);
+const base = localeBase(Astro.locals.starlightRoute);
+---
 <header class="wiki-header">
-  <a class="wiki-brand" href="/">Craft <span>Wiki</span></a>
-  <nav aria-label="Main navigation" class="wiki-header-links">
-    <a href="/#apps">Browse apps</a>
-    <a href="https://getartcraft.com">ArtCraft ↗</a>
-    <a href="/edit/">Edit wiki ↗</a>
-  </nav>
+  <a class="wiki-brand" href={`${base}/`}>Craft <span>Wiki</span></a>
+  <div class="wiki-header-end">
+    <nav aria-label={tr('Main navigation')} class="wiki-header-links">
+      <a href={`${base}/#apps`}>{tr('Browse apps')}</a>
+      <a href="https://getartcraft.com">ArtCraft ↗</a>
+      <a href="/edit/">{tr('Edit wiki')} ↗</a>
+    </nav>
+    <LanguageSelect />
+  </div>
 </header>
