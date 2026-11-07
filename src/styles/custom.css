@@ -2,6 +2,8 @@
 @import '@fontsource/instrument-serif/400-italic.css';
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/geist-mono';
+@import '@fontsource-variable/readex-pro';
+@import '@fontsource/aref-ruqaa/400.css';
 
 :root {
   --sl-font: 'Inter Variable', sans-serif;
@@ -85,8 +87,16 @@
 .sl-markdown-content img[src^='/assets/apps/'] { width:72px; height:72px; object-fit:contain; }
 /* Letter-spacing, italics and the monospace label font break the joins between Arabic letters. */
 :lang(ar) :is(.wiki-sidebar-label, .wiki-eyebrow, .wiki-home h1, .wiki-section-heading h2, .app-category-heading h3, .app-category-count, .app-badge-thirdparty) { letter-spacing:0; }
-:lang(ar) :is(.wiki-sidebar-label, .wiki-eyebrow, .wiki-section-heading > span, .app-category-count, .app-badge-thirdparty) { font-family:var(--sl-font); }
-:lang(ar) .wiki-home h1 em { font-style:normal; }
+/* These small labels are Arabic words, so Readex Pro comes first: a monospace space between Arabic words is too wide. */
+:lang(ar) :is(.wiki-sidebar-label, .wiki-eyebrow, .wiki-section-heading > span, .app-category-count, .app-badge-thirdparty) { font-family:'Readex Pro Variable', sans-serif; }
+/* Arabic pages: Arabic letters in Readex Pro, Latin ones (app names, code) in the site's own fonts,
+   which have no Arabic; Readex Pro's files only load for Arabic letters. The home headings are Arabic
+   words, so Readex Pro comes first there. The heading's second line is in Ruqaa, Arabic's quick hand,
+   where English has a serif italic. */
+:root:lang(ar) { --sl-font:'Inter Variable', 'Readex Pro Variable', sans-serif; }
+:lang(ar) :is(.wiki-home h1, .wiki-section-heading h2, .app-category-heading h3) { font-family:'Readex Pro Variable', sans-serif; }
+:lang(ar) .wiki-home h1 em { font-family:'Aref Ruqaa', serif; font-style:normal; line-height:inherit; }
+.sl-markdown-content .wiki-home h1:lang(ar) { line-height:1.45; }
 /* On right-to-left pages, code blocks stay left to right, and inline code and bold labels take the direction of their first letter, so @5<45, (load "name") and .dxf keep their order. */
 [dir='rtl'] .expressive-code pre { direction:ltr; }
 [dir='rtl'] .sl-markdown-content :is(:not(pre) > code, strong) { unicode-bidi:plaintext; }
