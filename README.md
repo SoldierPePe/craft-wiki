@@ -163,7 +163,7 @@ The site uses Astro Starlight with custom components configured in `astro.config
 - `WikiHeader.astro` renders the Craft Wiki brand and navigation, including the edit link and the language menu.
 - `WikiSidebar.astro` renders the searchable app list, each app's icon, and expandable guide links. The current app is expanded on its pages. On phones it also holds the language menu.
 - `WikiPageTitle.astro` hides the default Starlight page title on the custom home pages, English and Arabic, and retains it on guide pages.
-- `WikiThemeProvider.astro` selects the dark theme.
+- `WikiThemeProvider.astro` starts in dark mode and restores the visitor's saved light or dark choice.
 
 `src/styles/custom.css` styles the layout and uses the Archivo, Instrument Serif, Inter, and Geist Mono font families to match the main ArtCraft site. Arabic letters use Readex Pro, and the Arabic home heading's second line uses Aref Ruqaa. Font files are npm dependencies and are bundled during the build. The homepage markup and its hero copy live in `src/content/docs/index.mdx`, and the Arabic one's in `src/content/docs/ar/index.mdx`.
 
