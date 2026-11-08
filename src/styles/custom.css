@@ -44,15 +44,50 @@ header.header {
 .wiki-header-links > * { display:inline-flex; align-items:center; justify-content:center; min-height:100%; border:0; border-right:1px solid #30323b; border-radius:0; background:transparent; color:inherit; text-decoration:none; cursor:pointer; transition:background-color .16s ease,color .16s ease; }
 .wiki-header-links > :last-child { border-right:0; }
 .wiki-header-links > :not(.wiki-header-cta):hover { background:#1b1c24; color:#f4f3f0; }
-.wiki-header-links > :focus-visible { outline:2px solid #b9cbff; outline-offset:-4px; z-index:1; }
+.wiki-header-links > :focus-visible, .wiki-header-search button:focus-visible { outline:2px solid #b9cbff; outline-offset:-4px; z-index:1; }
 .wiki-header-link, .wiki-header-cta { padding:0 20px; font:600 10px/1 'Geist Mono Variable', monospace; letter-spacing:.13em; text-transform:uppercase; white-space:nowrap; }
 .wiki-header-icon { width:48px; padding:0; }
 .wiki-header-icon svg { width:18px; height:18px; }
 .wiki-icon-moon { display:none; }
 .wiki-header-links > .wiki-header-cta { min-width:120px; background:#f7f7f5; color:#15161a; }
 .wiki-header-links > .wiki-header-cta:hover { background:#dfe5f6; color:#15161a; }
+/* Search is the strip's first cell, set like the links beside it. */
+.wiki-header-search site-search, .wiki-header-search button[data-open-modal] { display:flex; align-self:stretch; width:100%; }
+.wiki-header-search button[data-open-modal] { height:auto; max-width:none; gap:10px; padding:0 14px 0 18px; border:0; border-radius:0; background:transparent; color:inherit; font:600 10px/1 'Geist Mono Variable', monospace; letter-spacing:.13em; text-transform:uppercase; }
+.wiki-header-search button[data-open-modal] svg { width:16px; height:16px; flex-shrink:0; }
+.wiki-header-search button[data-open-modal] > kbd { gap:3px; padding:4px 6px; border:1px solid #30323b; border-radius:0; background:transparent; font:inherit; font-size:9px; letter-spacing:.06em; }
+.wiki-header-search kbd kbd { font:inherit; }
 /* The searched words, in the search results and on the page a result opens: a yellow highlighter. */
 #starlight__search mark, mark.pagefind-highlight { background:#fde047; color:#111217; border-radius:2px; padding:0 2px; }
+/* The search dialog in the header's look: square, hairline borders, mono labels. */
+site-search dialog { border-color:#30323b; border-radius:0; background:#111217; }
+site-search dialog button[data-close-modal] { color:#a4a6b2; font:600 10px/1 'Geist Mono Variable', monospace; letter-spacing:.13em; text-transform:uppercase; }
+#starlight__search { --pagefind-ui-border:#30323b; --pagefind-ui-background:#17181c; --pagefind-ui-primary:#b9cbff; }
+#starlight__search :is(.pagefind-ui__search-input, .pagefind-ui__search-clear, .pagefind-ui__result-title, .pagefind-ui__result-nested, .pagefind-ui__button) { border-radius:0; }
+#starlight__search .pagefind-ui__search-input { background:#17181c; }
+#starlight__search .pagefind-ui__search-input:focus { outline:1px solid #b9cbff; outline-offset:-1px; }
+#starlight__search .pagefind-ui__message { font:600 10px/1.4 'Geist Mono Variable', monospace; letter-spacing:.12em; text-transform:uppercase; color:#858895; }
+#starlight__search .pagefind-ui__result-inner { border:1px solid #30323b; }
+/* One line under the page title; the tree lines, not more lines, separate its sections. */
+#starlight__search .pagefind-ui__result-inner { gap:0; }
+#starlight__search .pagefind-ui__result-title + .pagefind-ui__result-nested { border-top:1px solid #30323b; }
+#starlight__search :is(.pagefind-ui__result-title:not(:where(.pagefind-ui__result-nested *)), .pagefind-ui__result-nested):is(:hover, :focus-within) { outline:0; background:#1b1c24; }
+#starlight__search .pagefind-ui__button { border:1px solid #30323b; background:transparent; font:600 10px/1 'Geist Mono Variable', monospace; letter-spacing:.13em; text-transform:uppercase; }
+:root[data-theme='light'] site-search dialog { border-color:#dce0e6; background:#fff; }
+:root[data-theme='light'] site-search dialog button[data-close-modal] { color:#545b69; }
+:root[data-theme='light'] #starlight__search { --pagefind-ui-border:#dce0e6; --pagefind-ui-background:#fff; --pagefind-ui-primary:#3156b3; }
+:root[data-theme='light'] #starlight__search .pagefind-ui__search-input { background:#fff; }
+:root[data-theme='light'] #starlight__search .pagefind-ui__search-input:focus { outline-color:#3156b3; }
+:root[data-theme='light'] #starlight__search .pagefind-ui__message { color:#697282; }
+:root[data-theme='light'] #starlight__search :is(.pagefind-ui__result-inner, .pagefind-ui__result-nested, .pagefind-ui__button) { border-color:#dce0e6; }
+:root[data-theme='light'] #starlight__search :is(.pagefind-ui__result-title:not(:where(.pagefind-ui__result-nested *)), .pagefind-ui__result-nested) { background:#fff; }
+:root[data-theme='light'] #starlight__search :is(.pagefind-ui__result-title:not(:where(.pagefind-ui__result-nested *)), .pagefind-ui__result-nested):is(:hover, :focus-within) { background:#f0f2f5; }
+/* Square hairline tree lines in place of Starlight's rounded ones; the tick sits on the title's centre line. */
+#starlight__search .pagefind-ui__result-nested::before { width:0; inset-inline-start:24px; border-inline-start:1px solid #4a4d59; background:none; -webkit-mask:none; mask:none; }
+#starlight__search .pagefind-ui__result-nested:last-child::before { bottom:auto; height:23px; }
+#starlight__search .pagefind-ui__result-nested::after { content:''; position:absolute; top:23px; inset-inline-start:24px; width:12px; border-top:1px solid #4a4d59; }
+:root[data-theme='light'] #starlight__search .pagefind-ui__result-nested::before,
+:root[data-theme='light'] #starlight__search .pagefind-ui__result-nested::after { border-color:#b8bec8; }
 .wiki-sidebar-inner { width:100%; padding-bottom:24px; }
 .wiki-search-label { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
 #wiki-app-search { width:100%; padding:12px 14px; background:#1a1b22; border:1px solid #30323b; border-radius:6px; color:#f4f3f0; font:14px 'Inter Variable', sans-serif; }
@@ -110,11 +145,14 @@ header.header {
 .sl-markdown-content a.app-tile:hover .app-arrow { color:#b9cbff; transform:translate(2px,-2px); }
 .app-tile .app-caption { font-size:12.5px; line-height:1.45; color:#9ea1ae; margin:0; min-height:36px; }
 .sl-markdown-content img[src^='/assets/apps/'] { width:72px; height:72px; object-fit:contain; }
-@media (min-width:50rem) { .sidebar-pane { border-inline-end:1px solid #30323b; } .wiki-home { padding-top:52px; } .wiki-header-search { flex:0 1 22rem; } }
+@media (min-width:50rem) { .sidebar-pane { border-inline-end:1px solid #30323b; } .wiki-home { padding-top:52px; } .wiki-header-search { width:13.5rem; } }
 @media (max-width:49.99rem) {
   :root[data-has-sidebar] header.header { padding:0 0 0 40px; }
   .wiki-header { padding:0 0 0 12px; }
   .wiki-header-link, .wiki-header-cta { padding:0 13px; }
+  .wiki-header-search { width:48px; }
+  .wiki-header-search button[data-open-modal] { justify-content:center; padding:0; }
+  .wiki-header-search button[data-open-modal] svg { width:18px; height:18px; }
   .sl-menu-button { top:0; inset-inline-start:0; inset-inline-end:auto; width:40px; height:var(--sl-nav-height); border:0; border-radius:0; background:transparent; box-shadow:none; color:#a4a6b2; }
   .sl-menu-button:hover { background:#1b1c24; color:#f4f3f0; }
   :root[data-theme='light'] .sl-menu-button { background:transparent; color:#545b69; }
@@ -138,7 +176,7 @@ header.header {
   .wiki-header-links .wiki-header-browse { display:none; }
   .wiki-header-links .wiki-header-discord { display:none; }
   .wiki-header-link, .wiki-header-cta { padding:0 8px; font-size:9px; letter-spacing:.09em; }
-  .wiki-header-icon { width:43px; }
+  .wiki-header-icon, .wiki-header-search { width:43px; }
 }
 
 @media (max-width:35rem) {
@@ -162,6 +200,7 @@ header.header {
 :root[data-theme='light'] .wiki-guide-links a[aria-current='page'] { color:#3156b3; }
 :root[data-theme='light'] .wiki-header-links { border-color:#dce0e6; color:#545b69; }
 :root[data-theme='light'] .wiki-header-links > * { border-color:#dce0e6; }
+:root[data-theme='light'] .wiki-header-search button[data-open-modal] > kbd { border-color:#dce0e6; }
 :root[data-theme='light'] .wiki-header-links > :not(.wiki-header-cta):hover { background:#f0f2f5; color:#20232b; }
 :root[data-theme='light'] .wiki-header-links > .wiki-header-cta { background:#fff; color:#171a20; box-shadow:inset 0 0 0 1px #dce0e6; }
 :root[data-theme='light'] .wiki-header-links > .wiki-header-cta:hover { background:#f0f2f5; }

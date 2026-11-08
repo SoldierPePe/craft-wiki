@@ -4,9 +4,9 @@ import Search from 'virtual:starlight/components/Search';
 ---
 <header class="wiki-header">
   <a class="wiki-brand" href="/">Craft <span>Wiki</span></a>
-  {/* Replacing Starlight's header dropped its search of the Pagefind index the build makes; keep it. */}
-  {config.pagefind && <div class="wiki-header-search"><Search /></div>}
   <nav aria-label="Main navigation" class="wiki-header-links">
+    {/* Replacing Starlight's header dropped its search of the Pagefind index the build makes; keep it, as the strip's first cell. */}
+    {config.pagefind && <div class="wiki-header-search"><Search /></div>}
     <a class="wiki-header-link wiki-header-browse" href="/#apps">Browse apps</a>
     <a class="wiki-header-icon wiki-header-discord" href="https://discord.gg/artcraft" aria-label="ArtCraft on Discord" title="ArtCraft on Discord">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
