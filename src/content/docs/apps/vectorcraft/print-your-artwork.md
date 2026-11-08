@@ -17,7 +17,7 @@ This guide covers the Print dialog. It shows how to choose which artboards print
 
 VectorCraft saves the print settings with the document, and the dialog opens with the same choices next time.
 
-![The Print dialog on its General section, with the Copies, Artboards, Media and Orientation settings beside a preview of a harbor poster at sunset on a letter page](/assets/uploads/vectorcraft/print-general.webp)
+![The Print dialog on its General section with PDF File as the printer, Media set to Letter, Auto-Rotate turned on, Print Layers set to Visible & Printable Layers, Placement at the center and Scaling set to Do Not Scale. The preview shows a harbor poster at sunset on a letter page](/assets/uploads/vectorcraft/print-general.webp)
 
 ## Choose what prints
 
@@ -59,10 +59,22 @@ Template layers never print, whatever **Print Layers** is set to. A layer with *
 3. Choose a **Printer mark type** (Roman or Japanese), a **Trim mark weight** (0.125 pt, 0.25 pt or 0.5 pt) and an **Offset** from the artboard edge. The defaults are Roman, 0.25 pt and 6 pt.
 4. Under **Bleeds**, leave **Use document bleed settings** on to print the bleed set for the document, or turn it off and type **Top**, **Bottom**, **Left** and **Right** values.
 
-![The Marks and Bleed section of the Print dialog with all four printer's marks turned on, Roman marks at 0.25 pt and a 6 pt offset, and Use document bleed settings turned off with a 9 pt bleed on every side. The preview shows the harbor poster with its marks](/assets/uploads/vectorcraft/print-marks.webp)
+![The Marks and Bleed section of the Print dialog with PDF File as the printer, all four printer's marks turned on, Roman marks at 0.25 pt and a 6 pt offset, and Use document bleed settings turned off with a 9 pt bleed on every side. The preview shows the harbor poster centered on a 792 × 1224 pt page](/assets/uploads/vectorcraft/print-marks.webp)
 
 :::caution
 The printed area is the artboard together with its bleed and marks. When that area is larger than the printable area of the paper, **Summary** shows a warning. Choose larger paper, or set **Scaling** to **Fit to Page** to size the art so it fits with its marks.
+:::
+
+## Choose a printer
+
+Pick a printer under **Printer**. **PDF File** saves the job as a PDF instead, so you can print it later or check exactly what would print.
+
+**Setup…** opens your system's printer settings: the printer's own settings on Windows, **Print & Scan** on macOS, and `system-config-printer` or the CUPS web page on Linux. VectorCraft doesn't read changes made there, so choose the paper in the Print dialog.
+
+VectorCraft sends the whole job to your system as one PDF. In the web version, printing goes through the browser's print dialog.
+
+:::note
+If your system can't print, **Print** saves the job as a PDF and tells you in the status bar.
 :::
 
 ## Print separations
@@ -74,6 +86,17 @@ The **Output** section chooses between one color page and one page per ink.
 3. Set **Image** to **Positive** or **Negative**.
 4. With separations, turn on **Convert All Spot Colors to Process** to print spot colors on the process inks instead of their own pages.
 5. With separations, the **Document Ink Options** list shows each ink. Turn single inks on or off and set their frequency and angle.
+
+## Graphics, color and advanced options
+
+Most jobs print fine with the defaults. Change these when a printer has trouble or colors look wrong.
+
+- **Graphics › Download** sets how much of each font goes to the printer: **None**, **Subset** (the default) or **Complete**.
+- **Color Management › Printer profile** converts colors to the printer's profile. Pick a **Rendering intent**, and turn on **Preserve CMYK Numbers** to print CMYK colors exactly as they are.
+- **Advanced › Unprintable margin** is the edge your printer can't reach. The preview shows it as a dashed line.
+- **Advanced › Print as Bitmap** prints each page as one image, at the document's raster effects resolution.
+- **Advanced › Overprints** can preserve, discard or simulate overprints.
+- **Advanced › Preset** flattens transparency before printing, for printers that can't handle it.
 
 ## Set graphics options
 
@@ -144,7 +167,7 @@ When the art is larger than the paper, scale it down or split it across several 
 
 [Print a large poster](/apps/vectorcraft/print-tiling/) covers the two tiling choices step by step: the **Overlap** and **Tile Range** settings, how the tiles are numbered, **View → Show Print Tiling** and the **Print Tiling Tool**.
 
-![A wide night market banner with page outlines drawn over it and the page numbers 1, 2 and 3 in their corners, showing how the art splits across three pages, with the Print Tiling Tool active](/assets/uploads/vectorcraft/print-tiling.webp)
+![A wide night market banner split across three page outlines while a drag with the Print Tiling Tool is in progress. The crosshair pointer sits at the top-left corner of the first page, just above and to the left of the artboard, and a readout beside it shows dX -32 pt and dY -10 pt](/assets/uploads/vectorcraft/print-tiling-drag.webp)
 
 When you drag with the **Print Tiling Tool**, the pointer sets the top-left corner of the first page's printable area and snaps to the artboard's edges. Double-clicking the tool's icon in the toolbar also puts the pages back where the **Placement** setting puts them.
 
