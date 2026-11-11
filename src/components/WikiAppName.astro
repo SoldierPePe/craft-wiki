@@ -1,0 +1,14 @@
+---
+import { appVisuals, wordmark } from '../data/appVisuals.mjs';
+
+const { slug, name } = Astro.props;
+const app = appVisuals[slug];
+const { before, accent, after } = wordmark(name);
+const style = app && `--app-ink-dark:${app.inkDark ?? app.color};--app-ink-light:${app.inkLight ?? app.color}`;
+---
+{app && slug !== 'artcraft-studio' && accent ? <>{before}<span class="wiki-app-accent" style={style}>{accent}</span>{after}</> : name}
+
+<style>
+  .wiki-app-accent { color:var(--app-ink-dark); }
+  :global(:root[data-theme='light']) .wiki-app-accent { color:var(--app-ink-light); }
+</style>

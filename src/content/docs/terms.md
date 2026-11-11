@@ -3,7 +3,7 @@ title: Terms of use
 description: The terms for using and contributing to Craft Wiki.
 ---
 
-_Last updated: 7 November 2026_
+_Last updated: November 7, 2026_
 
 These terms cover your use of craft.wiki ("the wiki"), which ArtCraft ("we", "us") runs. By using the wiki, you agree to them. If you do not agree, please do not use the wiki.
 
@@ -15,11 +15,11 @@ You can read, share, and link to the wiki freely. Please do not try to disrupt t
 
 You must be at least 13 years old to edit the wiki or submit contributions.
 
-## Content licence
+## Content license
 
-Unless a page says otherwise, the text of the wiki is available under the [Creative Commons Attribution-ShareAlike 4.0 International licence](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0). You may copy and adapt it if you credit Craft Wiki, link to the licence, and share your changes under the same licence.
+Unless a page says otherwise, the text of the wiki is available under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0). You may copy and adapt it if you credit Craft Wiki, link to the license, and share your changes under the same license.
 
-This licence does not cover ArtCraft and Craft App names, logos, and app icons. They remain trademarks and property of ArtCraft and may not be used in ways that suggest our endorsement.
+This license does not cover ArtCraft and Craft App names, logos, and app icons. They remain trademarks and property of ArtCraft and may not be used in ways that suggest our endorsement.
 
 ## Contributions
 
@@ -46,8 +46,8 @@ We respect copyright and respond to notices under the US Digital Millennium Copy
 2. a description of the copyrighted work you believe is infringed;
 3. the address of the page containing the material;
 4. your name, address, telephone number, and email address;
-5. a statement that you believe in good faith the use is not authorised by the copyright owner, its agent, or the law;
-6. a statement, under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorised to act for them.
+5. a statement that you believe in good faith the use is not authorized by the copyright owner, its agent, or the law;
+6. a statement, under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorized to act for them.
 
 If your contribution was removed and you believe that was a mistake, you may send a counter-notice to the same address. We may remove editing access from people who repeatedly infringe.
 

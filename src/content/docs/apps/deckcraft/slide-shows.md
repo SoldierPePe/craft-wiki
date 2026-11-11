@@ -7,15 +7,15 @@ sidebar:
 
 ## Start a slide show
 
-- **F5**, or **Slide Show › From Beginning**, starts from the first slide.
-- **Shift+F5**, **Slide Show › From Current Slide**, or **Present** at the top right of the window starts from the slide you're on.
+- **F5**, or **Slide Show › Play from Start**, starts from the first slide.
+- **Shift+F5**, **Slide Show › Play from Current Slide**, or **Present** at the top right of the window starts from the slide you're on.
 - **Esc** ends the show.
 
-Opening a .ppsx file starts its slide show straight away.
+Double-clicking a .ppsx file starts its slide show right away.
 
 ## Use Presenter View
 
-Turn on **Presenter View** on the **Slide Show** tab before you start. Presenter View opens in a window of its own, so you can put it on your screen while the audience sees the slides on another display. It shows:
+**Presenter View** on the **Slide Show** tab is on by default, and needs a second display: Presenter View opens in a window of its own, so you can put it on your screen while the audience sees the slides on the other display. With one display, the show has only the slides. It shows:
 
 - the current slide and the next one, with **Next** to move on,
 - your speaker notes,
@@ -46,7 +46,9 @@ On a Mac, use **⌘** in place of **Ctrl**.
 
 ## Rehearse your timings
 
-Choose **Slide Show › Rehearse Timings** and present as you would for real. DeckCraft records how long you spend on each slide. Then tick **Use Timings** to have the show move on by itself.
+Choose **Slide Show › Rehearse Timings** and present as you would for real. DeckCraft records how long you spend on each slide. Then turn on **Use Timings** to have the show move on by itself.
+
+You can't record narration or camera video yet: **Record** and **Cameo** are dimmed. **From Beginning** and **From Current Slide** on the **Record** tab start a rehearsal. **Play Narrations** plays narration that's already in a file.
 
 ## Set up the show
 

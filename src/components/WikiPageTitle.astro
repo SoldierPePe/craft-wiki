@@ -2,6 +2,7 @@
 import Default from '@astrojs/starlight/components/PageTitle.astro';
 import { allApps } from '../data/apps.mjs';
 import { appVisuals } from '../data/appVisuals.mjs';
+import WikiAppName from './WikiAppName.astro';
 const slug = Astro.url.pathname.match(/^\/apps\/([^/]+)(?:\/|$)/)?.[1];
 const app = slug && appVisuals[slug];
 // Search results show only a page's title, and every app has a "Troubleshooting" page, so the
@@ -11,7 +12,10 @@ const { title } = Astro.locals.starlightRoute.entry.data;
 const searchTitle = appName && appName !== title ? `${appName} › ${title}` : undefined;
 ---
 {Astro.url.pathname !== '/' && (app
-  ? <div class="wiki-page-heading"><img src={`/assets/apps/${slug}.${app.icon ?? 'webp'}`} width="64" height="64" alt="" decoding="async" /><Default /></div>
+  ? <div class="wiki-page-heading">
+      <img src={`/assets/apps/${slug}.${app.icon ?? 'webp'}`} width="64" height="64" alt="" decoding="async" />
+      {title === app.name ? <h1 id="_top" class="wiki-app-title"><WikiAppName slug={slug} name={title} /></h1> : <Default />}
+    </div>
   : <Default />)}
 {searchTitle && <span hidden data-pagefind-meta={`title:${searchTitle}`}></span>}
 
@@ -19,6 +23,7 @@ const searchTitle = appName && appName !== title ? `${appName} › ${title}` : u
   .wiki-page-heading { display:flex; align-items:center; gap:18px; min-width:0; }
   .wiki-page-heading img { width:64px; height:64px; flex:none; object-fit:contain; }
   .wiki-page-heading :global(h1) { margin:0; min-width:0; font-family:'Archivo Variable',sans-serif; overflow-wrap:anywhere; }
+  .wiki-app-title { font-size:var(--sl-text-h1); line-height:var(--sl-line-height-headings); font-weight:600; color:var(--sl-color-white); }
   @media (max-width:40rem) {
     .wiki-page-heading { gap:12px; }
     .wiki-page-heading img { width:46px; height:46px; }

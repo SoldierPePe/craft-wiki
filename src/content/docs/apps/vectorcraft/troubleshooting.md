@@ -29,6 +29,20 @@ Remove-Item Env:WGPU_POWER_PREF   # go back to the default for later launches
 
 On Linux or macOS, start it with `WGPU_POWER_PREF=high vectorcraft`. You can also set `WGPU_ADAPTER_NAME` to part of the graphics card's name, such as `nvidia` or `intel`. The [log](#find-the-log) lists the graphics processors VectorCraft found and the one it used.
 
+## VectorCraft feels slow with a big drawing
+
+Drawings with thousands of paths can make hovering, zooming and panning lag. These settings and views change how much VectorCraft has to draw:
+
+- Outline view: press **Ctrl+Y** (**Cmd+Y** on macOS) to show only the outlines. Press it again to return to the full preview.
+- Hide layers you don't need. Hidden layers aren't drawn.
+- **Real-time Drawing and Editing**: under **Edit → Preferences… → Performance** (**Ctrl+K**), turn it off and VectorCraft stops redrawing the document while you drag. You see the pending shape until you let go.
+- **Animated Zoom**: turn it off in the same place. It is dimmed while **GPU Performance** is off.
+- **Render Threads**: the number of threads that draw the canvas. -1 lets VectorCraft choose.
+- **Graphics Processor**: on a laptop with two graphics processors, check that VectorCraft uses the one you expect. See [The window doesn't open, or stays black](#the-window-doesnt-open-or-stays-black).
+- **History States**: each open document keeps this many undo steps. A lower number uses less memory.
+
+[Preferences](/apps/vectorcraft/preferences/#performance) lists the defaults. Slowness on very large files is a known problem: see [Known problems, not fixed yet](#known-problems-not-fixed-yet).
+
 ## Files can't be dragged into the window on Linux
 
 On a Wayland desktop, dropping files on VectorCraft's window doesn't work yet. Use **File → Open** or **File → Place**, or copy the file in your file manager and paste it into the document.
@@ -74,11 +88,11 @@ Some items are listed but not built yet. Others only work when something is sele
 
 VectorCraft is in alpha, and some things don't come across between apps:
 
-- **`.ai` files**: VectorCraft reads the PDF part that most `.ai` files contain, and older `.ai` files too. It saves `.ai` files in the same PDF-compatible form, without another app's own editing data, so some things may not be editable when the file is opened elsewhere.
-- **Affinity documents**: whatever VectorCraft couldn't bring in, such as adjustments, blurs and brushes, is listed in a warning when the file opens. VectorCraft can't save Affinity files.
-- **Photoshop files** open as one flattened picture, without their layers.
+- `.ai` files: VectorCraft reads the PDF part that most `.ai` files contain, and older `.ai` files too. It saves `.ai` files in the same PDF-compatible form, without another app's own editing data, so some things may not be editable when the file is opened elsewhere.
+- Affinity documents: whatever VectorCraft couldn't bring in, such as adjustments, blurs and brushes, is listed in a warning when the file opens. VectorCraft can't save Affinity files.
+- Photoshop files open as one flattened picture, without their layers.
 
-[Open and save files](/apps/vectorcraft/open-and-save-files/) lists what VectorCraft opens and saves in each format. If you need an exact copy, keep the original file. Please [report the file](https://github.com/storytold/vectorcraft/issues) if you can share it: real files are how we find these problems.
+[Open and save files](/apps/vectorcraft/open-and-save-files/) lists what VectorCraft opens and saves in each format. If you need an exact copy, keep the original file. [Report the file](https://github.com/storytold/vectorcraft/issues) if you can share it: real files are how we find these problems.
 
 ## Text shows in the wrong font
 
@@ -123,10 +137,10 @@ VectorCraft saves recovery copies of changed documents every two minutes by defa
 
 ## Printing fails or the page comes out wrong
 
-- **Check the job first.** In **File › Print…**, look at the preview and at **Summary**, which lists your changes and warns about art bigger than the page.
-- **Wrong page size, or art cut off.** Check **Media** and **Scaling** in **General**, and **Unprintable margin** in **Advanced**.
-- **Not sure what's going to the printer?** Choose **PDF File** under **Printer** and look at the PDF. If you print that PDF, turn off "fit to page" in your PDF viewer.
-- **Changes in the printer's own settings are ignored.** VectorCraft doesn't read them back. Set the paper in the Print dialog.
+- Check the job first. In **File → Print…**, look at the preview and at **Summary**, which lists your changes and warns about art bigger than the page.
+- Wrong page size, or art cut off: check **Media** and **Scaling** in **General**, and **Unprintable margin** in **Advanced**.
+- Not sure what's going to the printer? Choose **PDF File** under **Printer** and look at the PDF. If you print that PDF, turn off "fit to page" in your PDF viewer.
+- Changes in the printer's own settings are ignored: VectorCraft doesn't read them back. Set the paper in the Print dialog.
 
 Known problems, not fixed yet:
 
@@ -140,6 +154,10 @@ See [Print your artwork](/apps/vectorcraft/print-your-artwork/#choose-a-printer)
 ## The web version is slow or won't start
 
 The web version uses the graphics card through WebGPU, which browsers only allow on secure pages. Open it from an `https://` address, or from `localhost`. Over plain `http://` elsewhere it falls back to slower WebGL2 graphics, and the clipboard doesn't work.
+
+## VectorCraft stopped while a plug-in was loading
+
+The next time it starts, VectorCraft names the plug-in and offers **Safe Mode**. You can disable the plug-in and continue, start normally, or start in Safe Mode, where no plug-ins load or run. **Help → Safe Mode…** lists the disabled plug-ins, and **Enable on Re-launch** turns one back on.
 
 ## Start with default settings
 
@@ -169,7 +187,7 @@ Choose **Help → About VectorCraft** (**VectorCraft → About VectorCraft** on 
 
 ![The About VectorCraft window over the Harbor at Dusk poster, on its About tab, showing Version 0.22.0, the Discord, ArtCraft website, getartcraft.com and GitHub links, the license and fonts line, and the graphics processor in use](/assets/uploads/vectorcraft/about-vectorcraft.webp)
 
-On Linux, `vectorcraft --version` prints the version. [Install and update](/apps/vectorcraft/install-update/) shows how to get a newer version.
+On macOS, Linux and FreeBSD, `vectorcraft --version` prints the version. [Install and update](/apps/vectorcraft/install-update/) shows how to get a newer version.
 
 ## Find the log
 
@@ -186,6 +204,20 @@ With the Windows portable zip, the log is in the `VectorCraftData\logs` folder n
 The current log is `vectorcraft.log`. The log from the run before is `vectorcraft.1.log`, so if VectorCraft crashed, attach that one too.
 
 The folder above `logs` is VectorCraft's settings folder.
+
+## Known problems, not fixed yet
+
+- Hovering with the Selection tools is slow over thousands of small paths ([#5976](https://github.com/storytold/vectorcraft/issues/5976)).
+- Hovering over a background rectangle under dense artwork is slower in 0.22.0 than in 0.21.1 ([#5979](https://github.com/storytold/vectorcraft/issues/5979)).
+- A large file lags even with the discrete graphics processor selected ([#5961](https://github.com/storytold/vectorcraft/issues/5961)).
+- Performance drops in full screen on an old Mac ([#6039](https://github.com/storytold/vectorcraft/issues/6039)).
+- The screen can flicker when you zoom ([#5891](https://github.com/storytold/vectorcraft/issues/5891)).
+- On Windows, VectorCraft is missing from the **Open with** list ([#5740](https://github.com/storytold/vectorcraft/issues/5740)). Open the file with **File → Open** instead.
+- Files from other Craft apps, such as `.pcraft`, don't open ([#5444](https://github.com/storytold/vectorcraft/issues/5444)).
+- An Illustrator `.ai` file can open as a blank document ([#5769](https://github.com/storytold/vectorcraft/issues/5769)).
+- An EPS file can open as raster tiles instead of editable paths ([#5846](https://github.com/storytold/vectorcraft/issues/5846)).
+- On Windows, a desktop shortcut can appear after each update ([#5356](https://github.com/storytold/vectorcraft/issues/5356)).
+- On a laptop with Intel and NVIDIA graphics, the window can stay blank and close ([#5476](https://github.com/storytold/vectorcraft/issues/5476)).
 
 ## Still stuck?
 

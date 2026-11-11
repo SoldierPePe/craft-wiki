@@ -21,12 +21,12 @@ CADCraft opens with a new, empty drawing. Around it you'll find:
 To look around a finished drawing first, choose **Help › Open Sample Drawing**. The **Start** tab, next to your drawing's tab, also lets you open a drawing, start a new one or a new metric one, and reopen recent files.
 
 :::note
-New drawings use inches. To start in millimetres, choose **New (metric)** on the **Start** tab, or set **Units of new drawings** in **Tools › Options › Open and Save**.
+New drawings use inches. To start in millimeters, choose **New (metric)** on the **Start** tab, or set **Units of new drawings** in **Tools › Options › Open and Save**.
 :::
 
 ## 3. Draw at the command line
 
-Click in the command line, or just start typing. Try these, pressing **Enter** after each:
+Click in the command line, or start typing. Try these, pressing **Enter** after each:
 
 ```text
 line 0,0 @10,0 @0,5 c
@@ -34,7 +34,7 @@ circle 5,2 1
 zoom e
 ```
 
-The first draws a closed triangle: it starts at 0,0, goes 10 units right, then 5 up, and `c` closes it. The second draws a circle with its centre at 5,2 and a radius of 1. `zoom e` zooms to fit the whole drawing.
+The first draws a closed triangle: it starts at 0,0, goes 10 units right, then 5 up, and `c` closes it. The second draws a circle with its center at 5,2 and a radius of 1. `zoom e` zooms to fit the whole drawing.
 
 A few things that work as CAD users expect:
 
@@ -51,7 +51,7 @@ Type `offset 0.25`, then click the circle and click outside it. CADCraft draws a
 
 ## 5. Save
 
-Press **Ctrl+S** (**⌘S** on a Mac). A new drawing is saved as DXF unless you choose otherwise. To save as DWG, choose **File › Save As** and pick **Drawing (DWG)**, or change **Save new drawings as** in **Tools › Options › Open and Save**.
+Press **Ctrl+S** (**⌘S** on a Mac). A new drawing is saved as DXF unless you choose otherwise. To save as DWG, choose **File › Save As...** and pick **Drawing (DWG)**, or change **Save new drawings as** in **Tools › Options › Open and Save**.
 
 CADCraft also autosaves unsaved drawings every 10 minutes, so it can offer them back after a crash. See [Troubleshooting](/apps/cadcraft/troubleshooting/#cadcraft-closed-and-i-lost-my-work).
 

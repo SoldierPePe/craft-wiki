@@ -3,6 +3,7 @@ title: Reshape with the warp tools
 description: Push, twist, pucker and roughen paths with the Warp tool and its six companions, pull points with the Reshape tool, bend art around pins with Puppet Warp, and distort art and type with Envelope Distort.
 sidebar:
   order: 12.4
+parent: workflows
 ---
 
 This guide covers the seven brush tools that reshape paths as you drag over them, the Reshape tool, the Puppet Warp tool, and the **Object → Envelope Distort** commands, which bend artwork and type into a warp, a mesh or the shape of another path.
@@ -130,7 +131,7 @@ To bend artwork into a preset shape:
 | **Style** | Arc | The shape of the warp: Arc, Arc Lower, Arc Upper, Arch, Bulge, Shell Lower, Shell Upper, Flag, Wave, Fish, Rise, Fisheye, Inflate, Squeeze or Twist |
 | **Horizontal** or **Vertical** | Horizontal | The direction the warp runs in |
 | **Bend** | 50% | How far the art bends, from −100% to 100%. Negative values bend it the other way |
-| **Distortion: Horizontal** and **Vertical** | 0% | Distorts the art further along each direction, from −100% to 100% |
+| **Distortion** → **Horizontal** and **Vertical** | 0% | Distorts the art further along each direction, from −100% to 100% |
 
 To bend artwork with a grid that you shape yourself:
 

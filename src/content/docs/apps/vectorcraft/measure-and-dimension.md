@@ -3,6 +3,7 @@ title: Measure and dimension
 description: Measure distances with the Measure tool, read positions and sizes in the Info panel, add linked length, angle and radius dimensions, inspect paths and anchor points, and list what a document holds.
 sidebar:
   order: 18.6
+parent: workflows
 ---
 
 This guide covers measuring artwork and adding dimensions to technical drawings: the Measure tool, the Info panel, the Dimension tool and its options, the Measure & Inspect tool and Anchor Inspector panel from the Path Precision Tools plug-in, and the Document Info panel.
@@ -172,4 +173,4 @@ The panel menu changes what the list shows:
 - [Workflows](/apps/vectorcraft/workflows/)
 - [Draw in perspective](/apps/vectorcraft/draw-in-perspective/)
 - [Cut, join and refine paths](/apps/vectorcraft/cut-join-and-refine-paths/)
-- [Set up documents and artboards](/apps/vectorcraft/set-up-documents-and-artboards/)
+- [Set up a document and artboards](/apps/vectorcraft/set-up-documents-and-artboards/)

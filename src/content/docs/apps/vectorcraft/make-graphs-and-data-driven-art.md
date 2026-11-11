@@ -3,6 +3,7 @@ title: Make graphs and data-driven art
 description: Draw column, bar, line, area, scatter, pie and radar graphs, edit their data, use your own art for columns and markers, and bind objects to variables to make one design per row of data.
 sidebar:
   order: 22.7
+parent: workflows
 ---
 
 This guide shows how to draw a graph from a table of numbers, change its type and options, and draw its columns and markers with your own art. It then covers the Variables panel, which binds text, images, graphs and visibility to variables so that one document can hold many versions of a design, one for each row of data.
@@ -120,14 +121,14 @@ A graph design is a piece of art that a graph draws in place of its plain column
 1. Draw the art. To set the area the design fills, put a rectangle behind the art. That backmost object becomes the design's frame.
 2. Select the art and choose **Object → Graph → Design…**.
 3. Click **New Design**. The design appears in the list as New Design.
-4. To rename it, type a name in **Name:** and click **Rename**. Graphs that use the design keep using it.
+4. To rename it, type a name in **Name** and click **Rename**. Graphs that use the design keep using it.
 
 ![The Graph Design dialog over the lantern-sales scene, with new crescent moon art selected beside the Lanterns Sold title. The list holds Lantern, Silk Lantern and Star, Lantern is picked and drawn in the preview box, Name: reads Lantern, and the New Design, Rename, Delete Design, Paste Design and Select Unused buttons sit below the preview](/assets/uploads/vectorcraft/graph-design-dialog.webp)
 
 | Button | What it does |
 |---|---|
 | **New Design** | Makes the selected art a design |
-| **Rename** | Gives the selected design the name typed in **Name:** |
+| **Rename** | Gives the selected design the name typed in **Name** |
 | **Delete Design** | Deletes the selected designs. Graphs that used them go back to their plain columns or markers |
 | **Paste Design** | Puts a copy of the selected design's art into the document, selected, so you can edit it and save it as a new design |
 | **Select Unused** | Selects the designs that no graph uses |
@@ -235,9 +236,9 @@ To write every version to its own file, record an action, then play it once for 
 
 1. In the Actions panel, record the steps that each version needs, for example an export. [Automate VectorCraft](/apps/vectorcraft/automate-vectorcraft/#record-and-play-actions) covers recording.
 2. Select the action and choose **Batch…** in the Actions panel menu.
-3. Set **Play:** to **Data Sets**. The batch applies every data set of the open document in turn.
-4. Choose a **File Name:**. **File + Number** names the files after the document with 001, 002 and so on added, **File + Data Set Name** adds the data set name to the document name, and **Data Set Name** uses the data set name alone.
-5. Set **Destination:** to **Folder**, choose the **Destination Folder:** and click **OK**. VectorCraft writes a copy for each data set and keeps the document open.
+3. Set **Play** to **Data Sets**. The batch applies every data set of the open document in turn.
+4. Choose a **File Name**. **File + Number** names the files after the document with 001, 002 and so on added, **File + Data Set Name** adds the data set name to the document name, and **Data Set Name** uses the data set name alone.
+5. Set **Destination** to **Folder**, choose the **Destination Folder** and click **OK**. VectorCraft writes a copy for each data set and keeps the document open.
 
 ![The Batch dialog for the Export Badge action over the stall badge, with Play: set to Data Sets, File Name: set to File + Data Set Name, Destination: set to Folder and a folder typed in Destination Folder:. The docked Actions panel lists the Default Actions set and a Stall Badges set holding Export Badge](/assets/uploads/vectorcraft/batch-data-sets.webp)
 

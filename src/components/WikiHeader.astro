@@ -7,8 +7,8 @@ import Search from 'virtual:starlight/components/Search';
   <nav aria-label="Main navigation" class="wiki-header-links">
     {/* Replacing Starlight's header dropped its search of the Pagefind index the build makes; keep it, as the strip's first cell. */}
     {config.pagefind && <div class="wiki-header-search"><Search /></div>}
-    <a class="wiki-header-link wiki-header-browse" href="/#apps">Browse apps</a>
-    <a class="wiki-header-icon wiki-header-discord" href="https://discord.gg/artcraft" aria-label="ArtCraft on Discord" title="ArtCraft on Discord">
+    <a class="wiki-header-link wiki-header-browse" href="/#apps"><span>Browse apps</span></a>
+    <a class="wiki-header-icon wiki-header-discord" href="https://discord.gg/artcraft" aria-label="Join the ArtCraft Discord" title="Join the ArtCraft Discord">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
         <path d="M19.7 5.1a18.1 18.1 0 0 0-4.5-1.4l-.6 1.2a16.6 16.6 0 0 0-5.2 0l-.6-1.2a18.1 18.1 0 0 0-4.5 1.4C1.4 9.3.6 13.4 1 17.5a18.2 18.2 0 0 0 5.5 2.8l1.2-2a11.6 11.6 0 0 1-1.8-.9l.4-.3a13 13 0 0 0 11.4 0l.4.3a11.6 11.6 0 0 1-1.8.9l1.2 2a18.2 18.2 0 0 0 5.5-2.8c.5-4.8-.8-8.9-3.3-12.4ZM8.6 15.1c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Zm6.8 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2Z"/>
       </svg>
@@ -22,7 +22,7 @@ import Search from 'virtual:starlight/components/Search';
         <path d="M20.9 13a9 9 0 0 1-9.9-9.9A9 9 0 1 0 20.9 13Z"/>
       </svg>
     </button>
-    <a class="wiki-header-link wiki-header-edit" href="/edit/">Edit wiki</a>
+    <a class="wiki-header-link wiki-header-edit" href="/edit/"><span>Edit wiki</span></a>
     <a class="wiki-header-cta" href="https://getartcraft.com">ArtCraft</a>
   </nav>
 </header>
@@ -49,17 +49,40 @@ import Search from 'virtual:starlight/components/Search';
 <script>
   const themeToggle = document.querySelector('.wiki-theme-toggle');
   if (themeToggle) {
+    const root = document.documentElement;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let requestedTheme = root.dataset.theme === 'light' ? 'light' : 'dark';
+    let themeTransition: ViewTransition | undefined;
+
     const updateThemeLabel = () => {
-      const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
       themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
       themeToggle.setAttribute('title', `Switch to ${nextTheme} theme`);
     };
 
     themeToggle.addEventListener('click', () => {
-      const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-      document.documentElement.dataset.theme = nextTheme;
-      try { localStorage.setItem('wiki-theme', nextTheme); } catch { /* Private browsing can block storage. */ }
-      updateThemeLabel();
+      requestedTheme = requestedTheme === 'light' ? 'dark' : 'light';
+      const applyTheme = () => {
+        root.dataset.theme = requestedTheme;
+        try { localStorage.setItem('wiki-theme', requestedTheme); } catch { /* Private browsing can block storage. */ }
+        updateThemeLabel();
+      };
+
+      themeTransition?.skipTransition();
+      if (reducedMotion.matches || !document.startViewTransition) {
+        applyTheme();
+        return;
+      }
+
+      root.dataset.wikiThemeTransition = '';
+      const transition = document.startViewTransition(applyTheme);
+      themeTransition = transition;
+      const finish = () => {
+        if (themeTransition !== transition) return;
+        themeTransition = undefined;
+        delete root.dataset.wikiThemeTransition;
+      };
+      void transition.finished.then(finish, finish);
     });
     updateThemeLabel();
   }

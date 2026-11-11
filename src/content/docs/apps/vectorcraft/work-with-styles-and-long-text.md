@@ -3,6 +3,7 @@ title: Work with styles and long text
 description: Save formatting as paragraph and character styles, set OpenType features, glyphs and tab stops, wrap text around objects, find and replace words, set vertical type, and fine-tune hyphenation and justification.
 sidebar:
   order: 14.5
+parent: workflows
 ---
 
 This guide covers the tools for menus, brochures and other documents with a lot of text: paragraph and character styles, OpenType features and glyphs, tab stops, text wrap, find and replace, special spaces and breaks, vertical type, hyphenation and justification, and the Type Tools plug-in. [Add and style type](/apps/vectorcraft/add-and-style-type/) covers making type and setting its font, size and alignment.
@@ -13,8 +14,8 @@ A style is a named set of attributes. When you change a style, every paragraph o
 
 | Kind | What it holds | Panel |
 |---|---|---|
-| **Paragraph style** | Paragraph attributes: alignment, indents, space before and after, tab stops, lists, hyphenation, justification and the composer | **Window → Type → Paragraph Styles** |
-| **Character style** | Character attributes: font, size, leading, kerning, tracking, case, position, color and OpenType features | **Window → Type → Character Styles** |
+| Paragraph style | Paragraph attributes: alignment, indents, space before and after, tab stops, lists, hyphenation, justification and the composer | **Window → Type → Paragraph Styles** |
+| Character style | Character attributes: font, size, leading, kerning, tracking, case, position, color and OpenType features | **Window → Type → Character Styles** |
 
 A paragraph style does not hold a font or a color. To give headings or dish names their own font and color, save those as a character style and use it together with the paragraph style.
 
@@ -126,7 +127,7 @@ To stop the wrap, select the object and choose **Object → Text Wrap → Releas
 
 1. Choose **Edit → Find and Replace…**.
 2. Type the text to look for in **Find** and the new text in **Replace**.
-3. Turn on **Match Case** to match capital and lowercase letters exactly, and **Whole Word** to skip matches inside longer words. With **Whole Word** on, "noodle" does not match "noodles".
+3. Turn on **Match Case** to match capital and lowercase letters exactly, and **Whole Word** to skip matches inside longer words. With **Whole Word** on, "noodle" does not match "noodles."
 4. Click **OK**.
 
 VectorCraft replaces every match in every type object of the document in one step, which **Edit → Undo** reverses. It skips hidden or locked type, type on hidden or locked layers, and type on locked artboards. A match must lie inside text with one set of character attributes, so a word that changes font or color partway through is not found.

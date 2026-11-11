@@ -3,6 +3,7 @@ title: Add and style type
 description: Make point type, area type and type on a path, flow text between frames, and set fonts, sizes and alignment.
 sidebar:
   order: 14
+parent: workflows
 ---
 
 This guide shows how to add the three kinds of type in VectorCraft, flow one story through several frames, and set the font, size, spacing and alignment of the text. It ends with turning letters into paths for artwork that no longer needs to be edited as text. The following image shows one example of each kind of type in one document.
@@ -13,9 +14,9 @@ This guide shows how to add the three kinds of type in VectorCraft, flow one sto
 
 | Kind | How to make it | What shapes it |
 |---|---|---|
-| **Point type** | Click with the Type tool and type. | Point type does not wrap. Each line ends where you press Enter. |
-| **Area type** | Drag a frame with the Type tool, or click the outline of a closed path. | The text wraps at the frame's edges. **Type → Area Type Options…** sets rows, columns, gutters and inset. |
-| **Type on a path** | Click the outline of an open path with the Type tool, or click any path with the Type on a Path tool. | The text follows the path. Drag the start, center and end brackets, or set options in **Type → Type on a Path → Type on a Path Options…**. |
+| Point type | Click with the Type tool and type. | Point type does not wrap. Each line ends where you press Enter. |
+| Area type | Drag a frame with the Type tool, or click the outline of a closed path. | The text wraps at the frame's edges. **Type → Area Type Options…** sets rows, columns, gutters and inset. |
+| Type on a path | Click the outline of an open path with the Type tool, or click any path with the Type on a Path tool. | The text follows the path. Drag the start, center and end brackets, or set options in **Type → Type on a Path → Type on a Path Options…**. |
 
 ## Choose a type tool
 

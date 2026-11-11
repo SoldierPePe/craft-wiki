@@ -5,7 +5,8 @@
     "dev": "astro dev",
     "build": "node scripts/prepare-cms.mjs && astro build",
     "preview": "astro preview",
-    "check:safebrowsing": "node scripts/check-safebrowsing.mjs craft.wiki"
+    "check:safebrowsing": "node scripts/check-safebrowsing.mjs craft.wiki",
+    "test:coverage": "mkdir -p coverage && node --test --experimental-test-coverage --test-coverage-include='worker/**' --test-coverage-exclude='**/*.test.mjs' --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info worker/index.test.mjs"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.42.10",

@@ -3,6 +3,7 @@ title: Manage color and proof for print
 description: Choose color settings and profiles, soft-proof colors on screen, check overprints and ink plates, use spot colors, flatten transparency and add trim marks before a print job.
 sidebar:
   order: 22.5
+parent: workflows
 ---
 
 This guide covers the steps that prepare artwork for a printer: the color settings and profiles, soft proofing on screen, overprinting, the ink plates, spot colors, transparency flattening and trim marks.
@@ -28,7 +29,7 @@ The color settings choose the RGB and CMYK working spaces that VectorCraft conve
 
 To use the profile your print shop sends, press **Load Profile…** and pick the `.icc` or `.icm` file. The file can be up to 32 MB. VectorCraft keeps a copy in the `Color Profiles` folder next to its preferences and loads it again each time it starts. The profile then appears in the RGB or CMYK list.
 
-To check whether the colors in a document can be printed, press **Gamut Check**. It checks the selected objects, or the whole document when nothing is selected. The status bar shows how many colors are out of the CMYK gamut, or "All colors are within the CMYK gamut".
+To check whether the colors in a document can be printed, press **Gamut Check**. It checks the selected objects, or the whole document when nothing is selected. The status bar shows how many colors are out of the CMYK gamut, or "All colors are within the CMYK gamut."
 
 ![The lantern group selected on the harbor festival poster after a gamut check. The status bar reads "All colors are within the CMYK gamut", and the Separations Preview panel shows the Gamut Check button under Color Settings](/assets/uploads/vectorcraft/gamut-check-status.webp)
 

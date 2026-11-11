@@ -3,6 +3,7 @@ title: Draw and transform shapes
 description: Draw rectangles, ellipses, polygons, stars, lines, arcs, spirals, grids and flares, round their corners, and move, copy, rotate, scale, reflect, shear and repeat transforms.
 sidebar:
   order: 11
+parent: workflows
 ---
 
 This guide covers the shape, line, arc, spiral, grid and flare tools, live corners and live shapes, selecting, copying and pasting, and moving, rotating, reflecting, scaling and shearing objects with the tools, the **Transform** panel and the **Object → Transform** commands, including **Transform Each** and **Transform Again**.
@@ -126,7 +127,7 @@ The **Spiral** dialog draws a spiral centered on the click:
 
 Click once with a grid tool to open the **Rectangular Grid** or **Polar Grid** dialog, which draws a grid at the point you clicked. Double-click the tool in the toolbar to open **Rectangular Grid Tool Options** or **Polar Grid Tool Options**, which sets the values the tool uses next without drawing. Both dialogs start with a reference point locator that chooses which point of the grid goes on the click.
 
-**Rectangular Grid Tool Options:**
+**Rectangular Grid Tool Options**:
 
 | Option | Default | What it does |
 |---|---|---|
@@ -138,7 +139,7 @@ Click once with a grid tool to open the **Rectangular Grid** or **Polar Grid** d
 | **Use Outside Rectangle As Frame** | On | On draws the outside as one rectangle, off draws its four sides as separate lines |
 | **Fill Grid** | Off | Gives the grid the current fill |
 
-**Polar Grid Tool Options:**
+**Polar Grid Tool Options**:
 
 | Option | Default | What it does |
 |---|---|---|

@@ -5,7 +5,7 @@ sidebar:
   order: 3
 ---
 
-PdfCraft groups its tools in the **All tools** panel on the left: **Export a PDF**, **Fill & Sign**, **Edit a PDF**, **Create a PDF**, **Combine files**, **Organize pages**, **Add comments**, **Scan & OCR**, **Protect a PDF**, **Redact a PDF**, **Compress a PDF**, **Prepare a form** and more under **View more**. Pick one and its tools appear above the page. The same commands are in the menus under **Menu**. If you can't find a command, press **Ctrl+K** (**⌘K** on a Mac) and type its name.
+PdfCraft groups its tools in the **All tools** panel on the left: **Export a PDF**, **Fill & Sign**, **Edit a PDF**, **Create a PDF**, **Combine files**, **Organize pages**, **Add comments**, **Scan & OCR**, **Protect a PDF**, **Redact a PDF**, **Compress a PDF**, **Prepare a form**, **Add a stamp**, **Use a certificate** and more under **View more**. Pick one and its tools appear in the panel. The same commands are in the menus at the top. If you can't find a command, press **Ctrl+K** (**⌘K** on a Mac) and type its name.
 
 ## Read
 
@@ -38,37 +38,52 @@ Choose **Edit a PDF**:
 
 ## Protect and redact
 
-- **Protect a PDF › Protect with password** sets a password to open the document, or one to change it, and chooses what people can do: print, change pages, copy text and so on. The password is applied when you save.
+- **Protect a PDF › Protect with password** sets a password to open the document, or one to change it, and chooses what people can do: print, change pages, copy text and so on. The password is applied when you save. To open a PDF that has one, enter the password when PdfCraft asks for it.
 - **Remove hidden information** lists things in the file you can't see on the page, such as metadata, so you can pick what to remove.
-- **Redact a PDF** blacks out text, pictures or whole pages. Mark what to remove with **Redact text and images**, or use **Find text and redact** to mark every match, then choose **Apply redactions**. **Sanitize document** removes everything hidden: metadata, attachments, comments, hidden text and layers, bookmarks, links and scripts. Form fields are flattened, so their values stay visible. Save afterwards: saving rewrites the whole file, so nothing removed stays in it.
+- **Redact a PDF** blacks out text, pictures or whole pages. Mark what to remove with **Redact text and images**, or use **Find text and redact** to mark every match, then choose **Apply redactions**. **Sanitize document** removes everything hidden: metadata, attachments, comments, hidden text and layers, bookmarks, links and scripts. Form fields are flattened, so their values stay visible. Save afterward: saving rewrites the whole file, so nothing removed stays in it.
 
 :::caution
-Applied redactions remove the text, pictures and drawings under the marks for good, along with comments and form fields that overlap them. Redaction can't find text inside pictures: recognise the text with OCR first. Keep a copy of the original.
+Applied redactions remove the text, pictures and drawings under the marks for good, along with comments and form fields that overlap them. Redaction can't find text inside pictures: recognize the text with OCR first. Keep a copy of the original.
 :::
 
 :::danger
-
-PdfCraft is still very much in alpha. For now you should use other tools for redaction of sensitive material prior to sharing/distribution of documents. 
-
+PdfCraft is in alpha. For now, use another tool to redact sensitive documents before you share them.
 :::
 
 ## Convert
 
 - **File › Export** saves the PDF as **Word**, **PowerPoint**, **RTF**, **HTML**, plain text, or each page as a picture. **Export all images…** saves every picture in the document. The layout of Word exports isn't kept well yet.
-- **File › Create** makes a PDF from another file, several files, pictures or the clipboard, or a **New blank PDF**.
+- **File › Create** makes a PDF from another file, several files, pictures or the clipboard. **File › New blank PDF** makes an empty one.
 - **Compress a PDF › Reduce file size** makes a smaller copy. **Advanced optimization** chooses what to shrink.
 
-## Recognise scanned text
+## Recognize scanned text
 
-A scanned page is a picture of words, so you can't search or copy it. Choose **Scan & OCR › In this file** to recognise the text, or **In multiple files** for several PDFs at once. Pick the language, the pages and whether to straighten or clean up the pages, then press **Run OCR**.
+A scanned page is a picture of words, so you can't search or copy it. Choose **Scan & OCR › In this file** to recognize the text, or **In multiple files** for several PDFs at once. Pick the language, the pages and whether to straighten or clean up the pages, then press **Run OCR**.
 
-PdfCraft shows the words it found, coloured by how sure it is. Go through the uncertain ones with **Next uncertain** (**F8**), click a word to correct it, then press **Accept** to add the text to the PDF, or **Reject** to leave it out. OCR works best on Latin-script languages.
+PdfCraft shows the words it found, colored by how sure it is. Go through the uncertain ones with **Next uncertain** (**F8**), click a word to correct it, then press **Accept** to add the text to the PDF, or **Reject** to leave it out. OCR works best on Latin-script languages.
 
-![The OCR screen: settings and the Run OCR, Accept and Reject buttons along the top, a scanned page in the middle with each word boxed in green or red by confidence, and the recognised words listed on the right](/assets/uploads/pdfcraft/ocr-verify.webp)
+To clean up a poor scan first, choose **Scan & OCR › Enhance scanned file**. It cleans the pictures in place, and the text, comments and links on the pages stay as they are. Pick the pages, then turn on what you need:
+
+- **Background removal** turns a gray or yellowed paper background white and darkens faint strokes. Move the slider to 0 to switch it off.
+- **Edge shadow removal** lightens shadows along the edges, such as a book's gutter.
+- **Despeckle** removes dust and scanner noise. It's the only filter that black-and-white scans take.
+
+Press **Enhance** to run it.
+
+![The OCR screen: settings and the Run OCR, Accept and Reject buttons along the top, a scanned page in the middle with each word boxed in green or red by confidence, and the recognized words listed on the right](/assets/uploads/pdfcraft/ocr-verify.webp)
 
 ## More tools
 
-**View more** in the tools panel also has **Measure objects** (distance, perimeter and area), **Compare files**, **Use guided actions** (the **Action Wizard**), **Prepare for accessibility** (with **Check for accessibility** and tagging tools), and **Apply PDF standards › Save as PDF/A** for archiving.
+**View more** in the tools panel also has **Measure objects** (distance, perimeter and area), **Compare files** (see below), **Use guided actions** (the **Action Wizard**), **Prepare for accessibility** (with **Check for accessibility** and tagging tools), and **Apply PDF standards › Save as PDF/A** for archiving.
+
+### Compare two versions of a file
+
+1. Open both files, the older one first.
+2. Switch to the newer file, then choose **Compare files › Select files to compare** in the tools panel.
+3. Under **Old file**, pick the older version. To check only some pages of the new file, enter them under **Pages**.
+4. Press **Compare**.
+
+PdfCraft compares the text word by word and shades the differences on the new file. The **Compare** panel lists them. **Side by side** shows both files, and **New file only** shows only the new one. **Mark as comments** turns the differences into comments, and **Report…** saves them.
 
 ## Print
 
@@ -114,7 +129,20 @@ In the web version, **Printer** offers your browser's print dialog instead of a 
 
 ## Preferences
 
-Choose **Edit › Preferences…** (**Ctrl+,**). Among other things, you can change the **Interface language**, the **Interface size**, which side the tools panel and side panels are on, the **Default page display**, whether PdfCraft reopens the files you had open last time, and whether it checks for updates when it starts.
+Choose **Edit › Preferences…** (**Ctrl+,**). The search box at the top finds a setting by name. These are the ones you are most likely to look for:
+
+- **Interface language**, **Interface size**, and which side the **Tools panel side** and **Navigation rail side** are on.
+- **Reopen the files that were open when PdfCraft last closed**, and **Restore the last view** to return to the page, zoom and page display a document had.
+- **Reload documents when their files change on disk**, for files another program rewrites.
+- **Recent files to keep** sets the length of the recent list. At 0 there is no list.
+- **Default workspace mode**, **Default page display**, **Default zoom** and **Show gaps between pages** set how PDFs open. Turn on **Always use my default zoom and page layout** to ignore the layout a PDF asks for.
+- **Units** for page sizes and margins, and **Scroll speed** for the mouse wheel and arrow keys. **Invert middle-button drag** reverses panning with the middle button.
+- **Name on new comments** is the author shown on your comments.
+- **Flatten Fill & Sign when saving** makes text, marks and signatures part of the page when you save.
+- **Show a notice when a document is secured** controls the bar that tells you a document has restrictions.
+- **Enable Acrobat JavaScript** is explained under [Forms and signing](/apps/pdfcraft/forms-and-signing/#calculated-fields-dont-update).
+
+**Animation effects** can follow your system or be turned on or off. If **Use system title bar** is there, it shows a basic title bar for the window buttons instead of the tab strip.
 
 ## Keyboard shortcuts
 
@@ -124,7 +152,7 @@ On a Mac, use **⌘** in place of **Ctrl**. **Help › Keyboard shortcuts** list
 | --- | --- |
 | **Ctrl+O** | Open |
 | **Ctrl+S**, **Ctrl+Shift+S** | Save, save as |
-| **Ctrl+W** | Close the file |
+| **Ctrl+W**, **Ctrl+Shift+W** | Close the file, close all files |
 | **Ctrl+P** | Print |
 | **Ctrl+D** | Document properties |
 | **Ctrl+Z**, **Ctrl+Shift+Z** | Undo, redo |
@@ -133,9 +161,11 @@ On a Mac, use **⌘** in place of **Ctrl**. **Help › Keyboard shortcuts** list
 | **Ctrl+K** | Find tools and commands |
 | **Ctrl+Shift+N** | Go to page |
 | **Ctrl+1**, **Ctrl+2**, **Ctrl+0** | Actual size, fit to width, whole page |
+| **Ctrl+3** | Fit visible |
 | **Ctrl++**, **Ctrl+−** | Zoom in, zoom out |
 | **Ctrl+[**, **Ctrl+]** | Previous view, next view |
 | **Ctrl+B** | New bookmark |
 | **Ctrl+L** | Full screen |
 | **F4**, **Shift+F4** | Side panel, tools panel |
+| **Ctrl+J** | JavaScript console |
 | **Ctrl+,** | Preferences |

@@ -4,11 +4,11 @@ import starlight from '@astrojs/starlight';
 const apps = [
   ['ArtCraft Studio', 'artcraft-studio'], ['PhotoCraft', 'photocraft'],
   ['VectorCraft', 'vectorcraft'], ['FilmCraft', 'filmcraft'], ['LightCraft', 'lightcraft'],
-  ['PdfCraft', 'pdfcraft'], ['EffectCraft', 'effectcraft'], ['DesignCraft', 'designcraft'],
+  ['PdfCraft', 'pdfcraft'], ['EffectCraft', 'effectcraft'], ['AniCraft', 'anicraft'], ['DesignCraft', 'designcraft'],
   ['FigCraft', 'figcraft'], ['TextureCraft', 'texturecraft'], ['MaterialCraft', 'materialcraft'],
   ['WordCraft', 'wordcraft'], ['SoundCraft', 'soundcraft'], ['DeckCraft', 'deckcraft'],
   ['CADCraft', 'cadcraft'], ['GridCraft', 'gridcraft'], ['Craft Anything', 'craft-anything'],
-  ['SolidCraft', 'solidcraft'],
+  ['SolidCraft', 'solidcraft'], ['MailCraft', 'mailcraft'],
 ];
 
 export default defineConfig({
@@ -18,6 +18,7 @@ export default defineConfig({
     // Starlight's default, /favicon.svg, isn't in public/, so every page linked a missing icon.
     favicon: '/assets/apps/artcraft-studio.svg',
     customCss: ['./src/styles/custom.css'],
+    routeMiddleware: './src/routeData.mjs',
     components: { Head: './src/components/WikiHead.astro', Header: './src/components/WikiHeader.astro', Sidebar: './src/components/WikiSidebar.astro', PageTitle: './src/components/WikiPageTitle.astro', ThemeProvider: './src/components/WikiThemeProvider.astro', Footer: './src/components/WikiFooter.astro' },
     sidebar: [
       { label: 'Home', link: '/' },
