@@ -30,14 +30,28 @@ import Search from 'virtual:starlight/components/Search';
   // A search result's link carries the searched words, and the page it opens marks them with
   // Pagefind's own highlighter, which the build puts next to the index.
   const param = 'pagefind-highlight';
-  document.addEventListener('click', (event) => {
-    const link = (event.target as Element).closest?.<HTMLAnchorElement>('#starlight__search a');
-    const words = document.querySelector<HTMLInputElement>('#starlight__search input')?.value.trim().split(/\s+/);
-    if (!link || !words?.[0]) return;
-    const url = new URL(link.href);
-    for (const word of words) url.searchParams.append(param, word);
-    link.href = url.href;
-  }, true);
+  // Stamp rendered URLs, not click events, so new-tab and context-menu navigation also
+  // carry the terms. Observe only child changes to avoid reacting to our own href updates.
+  const observedSearchRoots = new WeakSet<Element>();
+  const connectSearchHighlights = () => {
+    const root = document.querySelector('#starlight__search');
+    if (!root || observedSearchRoots.has(root)) return;
+    observedSearchRoots.add(root);
+    const updateLinks = () => {
+      const words = root.querySelector<HTMLInputElement>('input')?.value.trim().split(/\s+/).filter(Boolean) ?? [];
+      for (const link of root.querySelectorAll<HTMLAnchorElement>('a.pagefind-ui__result-link[href]')) {
+        const url = new URL(link.href);
+        url.searchParams.delete(param);
+        for (const word of words) url.searchParams.append(param, word);
+        if (link.href !== url.href) link.href = url.href;
+      }
+    };
+    root.addEventListener('input', updateLinks);
+    new MutationObserver(updateLinks).observe(root, { childList: true, subtree: true });
+    updateLinks();
+  };
+  connectSearchHighlights();
+  document.addEventListener('astro:page-load', connectSearchHighlights);
   // The header persists across page loads, so mark each page as the router shows it.
   document.addEventListener('astro:page-load', () => {
     if (!new URLSearchParams(location.search).has(param)) return;
