@@ -211,8 +211,8 @@ site-search dialog button[data-close-modal] { color:#a4a6b2; font:600 10px/1 'Ge
 }
 
 @media (max-width:39rem) {
-  /* The search cell takes the room, so Edit wiki leaves the strip a little before phone widths. */
-  .wiki-header-links .wiki-header-edit { display:none; }
+  /* Make room for search without removing the Edit wiki entry point at tablet widths. */
+  .wiki-header-links .wiki-header-discord { display:none; }
 }
 
 @media (max-width:32rem) {
